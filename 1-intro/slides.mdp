@@ -1,57 +1,71 @@
-%title: FLASK - Python
+%title: Kubernetes 
 %author: xavki
 
 
--> Flask pourquoi ? <-
 
-* un framework python
+
+-> Kubernetes / K8S : origines <-
+
+
+
+Kubernetes : grec timonier ou pilote (cf logo)
+
 
 <br>
-* développer ? un peu
+* Origine 2015 (1.0) : Google reverse à CNCF (Cloud Native Computing Foundation)
 
-* tester des infras ? beaucoup
-
-* python ? à la folie
+* CNCF : Amazon, Google, Huawei, Oracle, Docker, Citrix, eBay, Reddit, MasterCard...
 
 <br>
+* Google en 2014 : 2 milliards de conteneurs lancés par semaine
 
-* avantages :
-	- simple facile à utiliser pour faire de petits sites/applications
-	- serveur web intégré
-	- utilisation dans beaucoup de cas de figure : mini app interne, site web...
-	- utile pour des vidéos futures
-	- python pour faire aussi du scripting
+<br>
+* raccourci : orchestrateur de conteneur (comme Swarm pour docker mais bien plus poussé)
 
+<br>
+* conteneurs : docker mais pas que (CoreOS...)
 
-
---------------------------------------------------------------------------------------------------
-
+ 
+-------------------------------------------------------------------------------------------------------
 
 
--> Installation <-
+-> Kubernetes : pourquoi ? <-
 
 
-* paquet debian :
-
-```
-apt-get install python-flask
-```
-
-* par le gestionnaire de lib python pip
-
-```
-pip install flask
-```
 
 
-* idéal : utiliser virtualenv
-	- risque ? changement de versions
+<br>
+* pour orchestrer : comme swarm (lancement orchestré de multiples conteneurs)
 
 
--> utilisation <-
+<br>
+* pour créer de l'abstraction avec la notion de service (plus en IP)
 
-```
-#!/usr/bin/python
-from flask import Flask
-app = Flask(__name__)
-```
+
+<br>
+* pour apporter de la haute disponibilité (maintenir les conteneurs up)
+
+
+<br>
+* pour scaler : lancer de multiples instances en fonction de paramètres (à la main ou en automatique)
+
+
+<br>
+* peu importe le provider : vsphere (vmware), google cloud, aws, azure, bare metal (physique)
+
+------------------------------------------------------------------------------------------------------
+
+
+-> Kubernetes : cluster ou minikube <-
+
+
+* en mode cluster : un master et des noeuds esclaves
+
+
+* en mode démo/test : avec minikube
+		- nécessité d'avoir virtualbox
+		- image déployée automatiquement sur un vbox
+
+
+
+

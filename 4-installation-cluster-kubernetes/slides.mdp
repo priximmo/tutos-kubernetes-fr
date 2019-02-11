@@ -1,0 +1,101 @@
+%title: Kubernetes 
+%author: xavki
+
+
+-> Kubernetes : Prérequis <-
+
+
+<br>
+* Recommandations :
+
+```
+2 Gb ram
+2 CPU
+ouverture réseau large entre les 2 machines
+Ports master : 6443 2379-2380 10250 10251 10252
+Ports node : 10250 30000-32767
+pas de swap
+```
+
+<br>
+* prérequis : installation de docker
+
+```
+curl -fsSL https://get.docker.com | sh;
+sudo usermod -aG docker $USER
+```
+
+--------------------------------------------------------------------------------------------
+
+-> Kubernetes : installation  <-
+
+
+
+<br>
+* mise en place du dépôt apt :
+
+```
+apt-get update && apt-get install -y apt-transport-https curl
+
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+
+sudo add-apt-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+
+# sur le master spécifiquement
+sed -i '0,/ExecStart=/s//Environment="KUBELET_EXTRA_ARGS=--cgroup-driver=cgroupfs"\n&/' /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+
+systemctl daemon-reload
+systemctl restart kubelet
+```
+
+<br>
+* installation des binaires kubernetes :
+
+```
+sudo apt-get install -y kubelet kubeadm kubectl kubernetes-cni
+```
+
+	- kubeadm : installation du cluster
+	- kubelet : service qui tourne sur les machines (lancement pods...)
+	- kubectl : permet la communication avec le cluster
+
+--------------------------------------------------------------------------------------
+
+
+-> Kubernetes : initialisation et join <-
+
+
+
+* désactivation du swap
+
+```
+swapoff -a
+```
+et commentaire dans /etc/fstab
+
+
+* activation de kubelet au redémarrage
+
+```
+systemctl enable kubelet
+```
+
+* initilisation sur le master
+
+```
+kubeadm init --apiserver-advertise-address=192.168.56.101  --node-name $HOSTNAME
+
+# si définition du range d'ip des nodes :  --pod-network-cidr=10.244.0.0/16
+```
+
+* création du fichier de cofniguration
+
+```
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
+
+
+
+
