@@ -1,0 +1,57 @@
+%title: FLASK - Python
+%author: xavki
+
+
+-> Flask pourquoi ? <-
+
+* un framework python
+
+<br>
+* développer ? un peu
+
+* tester des infras ? beaucoup
+
+* python ? à la folie
+
+<br>
+
+* avantages :
+	- simple facile à utiliser pour faire de petits sites/applications
+	- serveur web intégré
+	- utilisation dans beaucoup de cas de figure : mini app interne, site web...
+	- utile pour des vidéos futures
+	- python pour faire aussi du scripting
+
+
+
+--------------------------------------------------------------------------------------------------
+
+
+
+-> Installation <-
+
+
+* paquet debian :
+
+```
+apt-get install python-flask
+```
+
+* par le gestionnaire de lib python pip
+
+```
+pip install flask
+```
+
+
+* idéal : utiliser virtualenv
+	- risque ? changement de versions
+
+
+-> utilisation <-
+
+```
+#!/usr/bin/python
+from flask import Flask
+app = Flask(__name__)
+```
