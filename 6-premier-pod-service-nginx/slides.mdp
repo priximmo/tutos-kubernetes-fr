@@ -1,0 +1,53 @@
+%title: Kubernetes 
+%author: xavki
+
+
+-> Kubernetes : premier pod <-
+
+
+<br>
+* pod = entité de référence dans kub : un ou plusieurs conteneurs docker
+
+* deployment = c'est une représentation logique de un ou plusieurs pod (configuration)
+
+<br>
+* création de pod sans fichier de conf ou avec
+
+<br>
+* commande :
+
+```
+kubectl create deployment nginx --image=nginx
+```
+
+<br>
+* visulisation de deployments et pods :
+
+```
+kubectl get deployments
+kubectl get pods
+```
+
+* détails :
+
+```
+kubectl describe deployment nginx
+```
+
+---------------------------------------------------------------------------------------
+
+
+-> Lancement du service du pod <-
+
+
+
+<br>
+* service = moyen d'accès à nos pods
+
+```
+kubectl create service nodeport nginx --tcp=80:80
+```
+
+* nodeport = exposition de port : rendre public notre pod via un port
+
+

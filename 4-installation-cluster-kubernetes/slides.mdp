@@ -23,29 +23,44 @@ pas de swap
 ```
 curl -fsSL https://get.docker.com | sh;
 sudo usermod -aG docker $USER
+
+groupadd -g 500000 dockremap && 
+groupadd -g 501000 dockremap-user && 
+useradd -u 500000 -g dockremap -s /bin/false dockremap && 
+useradd -u 501000 -g dockremap-user -s /bin/false dockremap-user
+
+echo "dockremap:500000:65536" >> /etc/subuid && 
+echo "dockremap:500000:65536" >>/etc/subgid
+
+echo "
+  {
+   \"userns-remap\": \"default\"
+  }
+" > /etc/docker/daemon.json
+
+systemctl daemon-reload && systemctl restart docker
+
 ```
 
 --------------------------------------------------------------------------------------------
 
 -> Kubernetes : installation  <-
 
+* désactivation du swap
 
+<br>
+```
+swapoff -a
+vim /etc/fstab
+```
 
 <br>
 * mise en place du dépôt apt :
 
 ```
 apt-get update && apt-get install -y apt-transport-https curl
-
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
-
 sudo add-apt-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
-
-# sur le master spécifiquement
-sed -i '0,/ExecStart=/s//Environment="KUBELET_EXTRA_ARGS=--cgroup-driver=cgroupfs"\n&/' /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
-
-systemctl daemon-reload
-systemctl restart kubelet
 ```
 
 <br>
@@ -53,11 +68,13 @@ systemctl restart kubelet
 
 ```
 sudo apt-get install -y kubelet kubeadm kubectl kubernetes-cni
+systemctl enable kubelet
 ```
 
 	- kubeadm : installation du cluster
 	- kubelet : service qui tourne sur les machines (lancement pods...)
 	- kubectl : permet la communication avec le cluster
+
 
 --------------------------------------------------------------------------------------
 
@@ -65,36 +82,64 @@ sudo apt-get install -y kubelet kubeadm kubectl kubernetes-cni
 -> Kubernetes : initialisation et join <-
 
 
-
-* désactivation du swap
-
-```
-swapoff -a
-```
-et commentaire dans /etc/fstab
-
-
-* activation de kubelet au redémarrage
-
-```
-systemctl enable kubelet
-```
-
+<br>
 * initilisation sur le master
 
 ```
-kubeadm init --apiserver-advertise-address=192.168.56.101  --node-name $HOSTNAME
-
-# si définition du range d'ip des nodes :  --pod-network-cidr=10.244.0.0/16
+kubeadm init --apiserver-advertise-address=192.168.56.101  --node-name $HOSTNAME --pod-network-cidr=10.244.0.0/16
 ```
 
-* création du fichier de cofniguration
+<br>
+* création du fichier de configuration
 
 ```
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
+
+<br>
+* ajout pod pour gestion du réseau interne
+
+```
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml
+kubectl edit cm -n kube-system kube-flannel-cfg
+# edit network 10.244.0.0/16 to 10.10.0.0/16 pour dashboard
+```
+
+-------------------------------------------------------------------------------------------
+
+
+-> Kubernetes : join <-
+
+
+
+
+* on vérifie l'état des pods system :
+
+```
+kubectl get pods --all-namespace
+kubectl get nodes
+```
+
+<br>
+* on fait le join sur le node :
+
+```
+kubeadm join 192.168.56.101:6443 --token 5q8bsc.141bc9wjsc026u6w --discovery-token-ca-cert-hash sha256:e0f57e3f3055bfe4330d9e93cbd8de967dde4e4a0963f324d2fe0ccf8427fcfb
+```
+
+<br>
+* on vérifie l'état des pods system :
+
+```
+kubectl get pods --all-namespace
+kubectl get nodes
+```
+
+
+-> THE END <-
+
 
 
 

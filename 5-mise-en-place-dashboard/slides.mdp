@@ -1,0 +1,37 @@
+%title: Kubernetes 
+%author: xavki
+
+
+-> Kubernetes : Dashboard <-
+
+* important si flanel : bien suivre la vidéo 4 (reconfig du network)
+
+<br>
+* installation du service dashboard :
+
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml
+```
+
+<br>
+* récupération du token :
+
+```
+kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}') | less
+```
+
+<br>
+* Lancement du proxy kub:
+
+```
+kubectl proxy
+```
+
+<br>
+* particularité vagrant
+```
+ssh -L 8001:127.0.0.1:8001 vagrant@192.168.56.101
+```
+
+
+-> THE END <-
