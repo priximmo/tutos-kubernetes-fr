@@ -102,7 +102,11 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 * ajout pod pour gestion du réseau interne
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml
+sysctl net.bridge.bridge-nf-call-iptables=1
+
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/a70459be0084506e4ec919aa1c114638878db11b/Documentation/kube-flannel.yml
+
+# si nécessaire
 kubectl edit cm -n kube-system kube-flannel-cfg
 # edit network 10.244.0.0/16 to 10.10.0.0/16 pour dashboard
 ```
