@@ -33,5 +33,12 @@ kubectl proxy
 ssh -L 8001:127.0.0.1:8001 vagrant@192.168.56.101
 ```
 
+* URL :
+
+```
+http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
+```
 
 -> THE END <-
+
+ssh user@master "sudo cat /etc/kubernetes/admin.conf" >.kube/config

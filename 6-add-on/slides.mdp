@@ -1,0 +1,31 @@
+%title: Kubernetes 
+%author: xavki
+
+
+-> Kubernetes : astuces <-
+
+
+<br>
+* disposer de l'autocomplétion :
+
+
+```
+echo "source <(kubectl completion bash)" >> ~/.bashrc
+```
+
+<br>
+* kubectl à distance :
+
+
+```
+# install kube config
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+sudo add-apt-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main" 
+sudo apt-get install kubectl
+
+# récupération du kube config
+mkdir ~/.kube
+
+ssh user@master "sudo cat /etc/kubernetes/admin.conf" >.kube/config
+```
+
