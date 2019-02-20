@@ -17,7 +17,7 @@
 * commande :
 
 ```
-kubectl create deployment nginx --image=nginx
+kubectl create deployment nginx --image nginx
 ```
 
 <br>
@@ -37,17 +37,28 @@ kubectl describe deployment nginx
 ---------------------------------------------------------------------------------------
 
 
--> Lancement du service du pod <-
+-> Exposition du pods : service <-
 
-
+<br>
+* Comment accéder au nginx ?
 
 <br>
 * service = moyen d'accès à nos pods
 
 ```
-kubectl create service nodeport nginx --tcp=80:80
+kubectl create service nodeport nginx --tcp=8080:80
 ```
 
 * nodeport = exposition de port : rendre public notre pod via un port
 
+* autre méthode expose deployment
 
+```
+kubectl expose deployment nginx --type NodePort --port 80
+```
+
+* ponctuellement et non recommandé le port-forwarding
+
+```
+kubectl port-forward nginx-5c7588df-kj2pn 8080:80
+```

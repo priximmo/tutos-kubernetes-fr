@@ -1,0 +1,47 @@
+%title: Kubernetes 
+%author: xavki
+
+
+-> Kubernetes : premier pas dans le déploiement <-
+
+<br>
+* la cli c'est bien en abuser ça craint...
+
+* un fichier est préférable car les configuration sont souvent complexes 
+
+* c'est aussi un moyen de sauvegarder les déploiements
+
+<br>
+* génération d'un yaml à partir d'un déploiement existant
+
+```
+kubectl get deploy nginx -o yaml > mondeploy.yaml 
+```
+
+<br>
+* génération du service en yaml
+
+```
+kubectl get service nginx -o yaml > monservice.yaml
+```
+
+---------------------------------------------------------------------------------------
+
+
+-> Kubernetes : lancement des fichiers deploy et services <-
+
+
+
+<br>
+* création et lancement du déploiement (lancement) :
+
+```
+kubectl create -f mondeploy.yml
+```
+
+* création et lancement du service :
+
+```
+kubectl create -f monservice.yml
+```
+

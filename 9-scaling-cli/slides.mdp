@@ -1,0 +1,20 @@
+%title: Kubernetes 
+%author: xavki
+
+
+-> Kubernetes : scaling <-
+
+
+<br>
+
+* scaling : création de même instance du me service
+		- supporter la charge principalement
+
+* CLI : pour de la démo
+
+
+* exemple nginx :
+
+```
+kubectl create service nodeport nginx --tcp 8080:80
+```

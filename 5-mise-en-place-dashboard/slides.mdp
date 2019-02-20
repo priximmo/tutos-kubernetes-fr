@@ -4,7 +4,14 @@
 
 -> Kubernetes : Dashboard <-
 
-* important si flanel : bien suivre la vidéo 4 (reconfig du network)
+<br>
+
+* installer dans un premier temps heapster (monitoring)
+
+```
+kubectl apply --filename https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/standalone/heapster-controller.yaml
+```
+
 
 <br>
 * installation du service dashboard :
@@ -12,6 +19,16 @@
 ```
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml
 ```
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+-> Suite de l'installation <-
+
+
 
 <br>
 * récupération du token :
@@ -28,7 +45,7 @@ kubectl proxy
 ```
 
 <br>
-* particularité vagrant
+* parfois
 ```
 ssh -L 8001:127.0.0.1:8001 vagrant@192.168.56.101
 ```
@@ -39,6 +56,28 @@ ssh -L 8001:127.0.0.1:8001 vagrant@192.168.56.101
 http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
 ```
 
+* ajout admin
+
+```
+cat dashboard-admin.yaml
+
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: kubernetes-dashboard
+  labels:
+    k8s-app: kubernetes-dashboard
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: kubernetes-dashboard
+  namespace: kube-system
+
+#kubectl create -f dashboard-admin.yaml
+```
+
 -> THE END <-
 
-ssh user@master "sudo cat /etc/kubernetes/admin.conf" >.kube/config
