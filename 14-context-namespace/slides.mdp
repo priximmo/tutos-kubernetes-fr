@@ -1,0 +1,88 @@
+%title: Kubernetes 
+%author: xavki
+
+
+-> Kubernetes : Namespace et Contextes <-
+
+
+
+
+<br>
+* namespace : un espace cloisonné (potentiellement gestion de droits...)
+
+* les namespaces vont permettre de lancer plusieurs pods identiques
+
+* ordonner et sécuriser ses déploiements
+
+
+* exemple : le namespace kube-system
+
+
+```
+kubectl get pods
+
+kubectl get pods -n kube-system
+```
+
+----------------------------------------------------------------------------------
+
+
+-> Namespace et contexte <-
+
+
+* contexte : qui sommes nous et ou sommes nous ? permettre de changer plus facilement de namespace
+
+<br>
+* la config view
+
+```
+kubectl config view
+```
+
+
+<br>
+* lister les contextes
+
+```
+kubectl config get-contexts
+```
+
+<br>
+* lister les namespaces
+
+```
+kubectl get namespace
+```
+
+<br>
+* dans quel context sommes nous ?
+
+```
+kubectl config get-contexts
+```
+
+---------------------------------------------------------------------------
+
+-> Création <-
+
+
+<br>
+* création d'un namespace
+
+```
+kubectl create namespace xavki
+```
+
+<br>
+* création d'un contexte
+
+```
+kubectl config set-context xavki --namespace xavki --user kubernetes-admin --cluster kubernetes
+```
+
+<br>
+* switch de contexte
+
+```
+kubectl config use-context xavki
+```
