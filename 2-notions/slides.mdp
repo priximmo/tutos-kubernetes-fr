@@ -27,6 +27,14 @@
 		- service > ip/port > pods
 		- service = ip et port fixe
 
+
+----------------------------------------------------------------------
+
+
+-> Suites des notions <-
+
+
+
 <br>
 * volumes: persistents ou non
 		- lieux d'échanges entre pods
