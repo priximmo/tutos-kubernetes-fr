@@ -14,6 +14,8 @@ kubeadm init --apiserver-advertise-address=192.168.56.101
 --node-name $HOSTNAME --pod-network-cidr=10.244.0.0/16
 ```
 
+Rq :édition du host nécessaire sur Vbox et Vagrant
+
 <br>
 * création du fichier de configuration
 
