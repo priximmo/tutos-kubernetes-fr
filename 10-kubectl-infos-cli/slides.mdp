@@ -10,7 +10,20 @@
 
 ```
 kubectl get nodes
+kubectl describe nodes kubmaster
 ```
+
+<br>
+* les composants
+
+```
+kubectl get componentstatuses
+kubectl get daemonsets -n kube-system
+```
+
+---------------------------------------------------
+
+-> Pods et services <-
 
 <br>
 * liste des pods
