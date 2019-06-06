@@ -2,14 +2,24 @@
 %author: xavki
 
 
--> Kubernetes : premier pas dans le déploiement <-
+# Kubernetes : yaml, les fichiers descriptifs
+
+
+<br>
+## Pourquoi passer par les fichiers de conf ?
+
 
 <br>
 * la cli c'est bien en abuser ça craint...
 
 * un fichier est préférable car les configuration sont souvent complexes 
 
-* c'est aussi un moyen de sauvegarder les déploiements
+* c'est aussi un moyen de sauvegarder les déploiements (versionner, gitter...)
+
+
+<br>
+## Génération des fichiers par la CLI
+
 
 <br>
 * génération d'un yaml à partir d'un déploiement existant
@@ -30,8 +40,7 @@ kubectl get service nginx -o yaml > monservice.yaml
 ---------------------------------------------------------------------------------------
 
 
--> Kubernetes : lancement des fichiers deploy et services <-
-
+# Kubernetes : lancement des fichiers deploy et services 
 
 
 <br>
@@ -46,6 +55,9 @@ kubectl apply -f mondeploy.yml
 ```
 kubectl apply -f monservice.yml
 ```
+
+<br>
+## Orchestrer un déploiement
 
 * Astuce : concatener les 2 fichiers :
 
