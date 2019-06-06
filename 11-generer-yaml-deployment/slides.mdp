@@ -15,6 +15,7 @@
 * génération d'un yaml à partir d'un déploiement existant
 
 ```
+kubectl create deploy monnginx --image nginx
 kubectl get deploy nginx -o yaml > mondeploy.yaml 
 ```
 
@@ -22,6 +23,7 @@ kubectl get deploy nginx -o yaml > mondeploy.yaml
 * génération du service en yaml
 
 ```
+kubectl create service nodeport monnginx --tcp=8080:80
 kubectl get service nginx -o yaml > monservice.yaml
 ```
 
@@ -36,12 +38,19 @@ kubectl get service nginx -o yaml > monservice.yaml
 * création et lancement du déploiement (lancement) :
 
 ```
-kubectl create -f mondeploy.yml
+kubectl apply -f mondeploy.yml
 ```
 
 * création et lancement du service :
 
 ```
-kubectl create -f monservice.yml
+kubectl apply -f monservice.yml
 ```
 
+* Astuce : concatener les 2 fichiers :
+
+```
+cat mondeploy.yaml monservices.yaml >appli.yaml
+```
+
+Rq : séparer par "---" les ressrouces (kind)
