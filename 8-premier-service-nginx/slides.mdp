@@ -2,13 +2,15 @@
 %author: xavki
 
 
--> Kubernetes : premier pod <-
+-> Kubernetes : premier pod / service <-
 
 
 <br>
 * pod = entité de référence dans kub : un ou plusieurs conteneurs docker
 
 * deployment = c'est une représentation logique de un ou plusieurs pod (configuration)
+
+* service = moyen d'accéder à nos pods (ip/port)
 
 <br>
 * création de pod sans fichier de conf ou avec
@@ -17,7 +19,7 @@
 * commande :
 
 ```
-kubectl create deployment nginx --image nginx
+kubectl create deployment monnginx --image nginx
 ```
 
 <br>
@@ -46,16 +48,28 @@ kubectl describe deployment nginx
 * service = moyen d'accès à nos pods
 
 ```
-kubectl create service nodeport nginx --tcp=8080:80
+kubectl create service nodeport monnginx --tcp=8080:80
 ```
 
-* nodeport = exposition de port : rendre public notre pod via un port
+* méthode :
+nodeport = exposition de port : rendre public notre pod via un port (30000-32767)
+Clusterip = minimale car exposition interne
+loadBalancerIP = pour exposer via controler ingress ou dans le cloud
+externalname = via url
 
-* autre méthode expose deployment
+Infos : https://kubernetes.io/docs/concepts/services-networking/
+
+-------------------------------------------------------------------------------------
+
+
+-> Autre méthode expose deployment <-
+
+
 
 ```
 kubectl expose deployment nginx --type NodePort --port 80
 ```
+
 
 * ponctuellement et non recommandé le port-forwarding
 
