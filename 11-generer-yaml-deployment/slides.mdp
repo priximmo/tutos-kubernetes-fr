@@ -12,7 +12,7 @@
 <br>
 * la cli c'est bien en abuser ça craint...
 
-* un fichier est préférable car les configuration sont souvent complexes 
+* un fichier est préférable car les configurations sont souvent complexes 
 
 * c'est aussi un moyen de sauvegarder les déploiements (versionner, gitter...)
 

@@ -34,7 +34,7 @@ kubectl get pods -n kube-system
 
 
 <br>
-* contexte : quisommes nous, où sommes nous ? (conf par défaut du namespace par ex)
+* contexte : qui sommes nous, où sommes nous ? (conf par défaut du namespace par ex)
 
 
 <br>
