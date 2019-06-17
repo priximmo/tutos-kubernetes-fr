@@ -8,6 +8,9 @@
 <br>
 * permettre de lancer les conteneurs docker
 
+* manifeste : configuration en mode déclaratif
+	- format yaml ou json
+
 <br>
 * à éviter : 
 		- préférer les déploiements (plus aboutis)
@@ -39,18 +42,18 @@
 ---------------------------------------------------------------------------
 
 
-## Configuration minimum
+# Configuration minimum
 
+* Version api k8s
+* Type de ressource : pod, deployment, replicaset, service
+* metadata : information sur la ressource créée
+* spec : caractéristiques spécifiques de la ressource
 
 ```
-# Version api k8s
 apiVersion: v1
-# Type de ressource
 kind: Pod
-# Metadata spec ressource
 metadata:
   name: monpod
-# Spécifications liées à la ressource
 spec:
   containers:
   - name: nginx
@@ -61,10 +64,11 @@ spec:
 --------------------------------------------------------------------------
 
 
-## Configuration : namespace et ports
+# Configuration : namespace, labels, annotations
 
 
-* Exposition des ports du containeurs et cloisonnement :
+<br>
+* namespace, labels, annotations : cf vidéos précédentes
 
 ```
 apiVersion: v1
@@ -73,72 +77,63 @@ metadata:
   name: monpod
   # définition du namespace
   namespace: xavki
+  # labels
+  labels:
+    env: prod
+  # annotations
+  annotations:
+    url: monsite.fr
 spec:
+  selector:
+    env: prod
   containers:
   - name: nginx
     image: nginx
-    ports:
-    - containerPort: 80
 ```
 
 
 --------------------------------------------------------------------------
 
-## Configuration : politique de restart
+## Exposition de ports
 
-
-* idem docker
+* attention : exposition interne uniquement (sinon services)
 
 ```
 apiVersion: v1
 kind: Pod
 metadata:
   name: monpod
-  namespace: xavki
 spec:
   containers:
   - name: nginx
     image: nginx
     ports:
     - containerPort: 80
-  restartPolicy: Always
 ```
 
+-------------------------------------------------------------------------
 
---------------------------------------------------------------------------
+## Pods multiconteneurs
 
-## Configuration : commande à exécuter
-
-
-
+<br>
 ```
-apiVersion: v1
 kind: Pod
 metadata:
-  name: hello
-  namespace: xavki
+  name: monpod
 spec:
   containers:
-  - name: monalpine
-    image: alpine
-    command: ["echo", "hello"]
+  - name: nginx
+    image: nginx
+    ports:
+    - containerPort: 80
+  - name: mondebian
+    image: debian
+    command: ["sleep", "600"]
 ```
+<br>
+Connexion à un des conteneurs 
 
-
---------------------------------------------------------------------------
-
-## Configuration : politique de restart
-
-
-* idem docker
-
-
-
-
-
-
-
-
-
-
+```
+kubectl exec -ti monpod -c mondebian /bin/bash
+```
 
