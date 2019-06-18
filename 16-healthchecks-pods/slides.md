@@ -67,6 +67,10 @@ kubectl exec -ti monpod -c mondebian /bin/bash
 
 -------------------------------------------------------------------------
 
+
+# Liveness par la commande
+
+
 <br>
 * exemple doc k8s :
 
@@ -91,4 +95,45 @@ spec:
 -----------------------------------------------------------------------
 
 
-#
+# Liveness par le httpGet
+
+
+<br>
+* check sur une autre adresse :
+
+```
+spec:
+  containers:
+  - name: liveness
+    image: nginx
+    livenessProbe:
+      httpGet:
+        path: /
+        host: www.google.fr
+        port: 443
+        scheme: HTTPS
+      initialDelaySeconds: 3
+      periodSeconds: 3
+```
+
+
+-----------------------------------------------------------------------
+
+
+# Liveness par TCPSocket
+
+<br>
+* idem mais en tcp
+
+```
+spec:
+  containers:
+  - name: liveness
+    image: nginx
+    livenessProbe:
+      tcpSocket:
+        port: 80
+        host: google.fr
+      initialDelaySeconds: 15
+      periodSeconds: 20
+```
