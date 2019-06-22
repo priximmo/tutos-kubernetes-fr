@@ -80,12 +80,7 @@ metadata:
   # labels
   labels:
     env: prod
-  # annotations
-  annotations:
-    url: monsite.fr
 spec:
-  selector:
-    env: prod
   containers:
   - name: nginx
     image: nginx

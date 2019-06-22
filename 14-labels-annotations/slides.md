@@ -4,10 +4,12 @@
 
 # Labels et Annotations
 
-
+<br>
 ## Principe
 
 * démo en CLI
+
+* s'applique aux ressources
 
 <br>
 * labels : utilisés par kubernetes (selectors)
