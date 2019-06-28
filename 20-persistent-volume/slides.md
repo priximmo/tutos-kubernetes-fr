@@ -41,6 +41,14 @@ spec:
     path: "/pvdata"
 ```
 
+Rq :
+	- ReadWriteOnce : monté sur un simple noeud
+	-	ReadOnlyMany : montés sur plusieurs noeuds en lecture
+	- ReadWriteMany : lecture écriture sur plusieurs noeuds
+
+```
+kubectl get pv
+```
 
 -----------------------------------------------------------------
 
@@ -59,6 +67,10 @@ spec:
   resources:
     requests:
       storage: 1Gi
+```
+
+```
+kubectl get pvc
 ```
 
 -----------------------------------------------------------------

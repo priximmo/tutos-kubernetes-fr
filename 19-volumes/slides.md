@@ -58,11 +58,12 @@ spec:
     - containerPort: 80
     volumeMounts:
     - mountPath: /usr/share/nginx/html
-      name: "monvolume"
+      name: monvolume
   volumes:
-  - name: "monvolume"
+  - name: monvolume
     hostPath:
-      path: "/srv/data"
+      path: /srv/data
+      type: Directory
 ```
 
 -----------------------------------------------------------------------------------------
@@ -105,11 +106,10 @@ spec:
 
 ----------------------------------------------------------------------------------------
 
-# Volume : emptyDir
+# Volume : emptyDir en ram
 
 
 <br>
-* en ram
 
 ```
   volumes:
