@@ -7,7 +7,7 @@
 <br>
 * kubernetes propose du provisioning
 		- persistentVolumes et persistentVolumesClaim
-
+		- sépration entre provisionning et consommation
 
 * ressources spécifiques
 
@@ -99,5 +99,35 @@ spec:
           name: monstorage
 ```
 
+-----------------------------------------------------------------
 
 
+# Caractéristiques de la Classe de Storage
+
+
+<br>
+* reclaim policies :
+		- deleted
+		- 
+		-
+
+* provisionner :
+		- host
+		- nfs
+		- aws
+		...
+
+* parameters
+
+<br>
+```
+apiVersion: v1
+kind: StorageClass
+metadata:
+  name: mystorage
+provisioner: kubernetes.io/aws-ebs
+parameters:
+  type: io1
+  iopsPerGB: “10”
+  fsType: ext4
+```

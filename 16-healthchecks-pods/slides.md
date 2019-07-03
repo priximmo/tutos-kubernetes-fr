@@ -32,16 +32,40 @@ Connexion à un des conteneurs
 kubectl exec -ti monpod -c mondebian /bin/bash
 ```
 
---------------------------------------------------------
+-------------------------------------------------------------------------
 
 # Liveness et Readiness
 
 
 <br>
-* certaines application son besoin d'être restartées
+* certaines application ont besoin d'être restartées
+
+* prévenir les images mal construites non fonctionnelles
+
+* éviter les coupures lors de déploiements (zero downtime)
 
 <br>
 * liveness = restart automatique
+
+* readiness = remplacement de pods défectueux
+
+* les deux sont complémentaires
+
+<br>
+* exemple de scénario :
+
+1- readiness = fail
+2- > sortie du pods
+3- liveness = fail
+4- > restart du pods
+5- liveness = ok
+6- readiness = ok
+7- > le pod intègre le pool
+
+-------------------------------------------------------------------------
+
+# Liveness et Readiness
+
 
 <br>
 * multiples modes :
@@ -68,7 +92,7 @@ kubectl exec -ti monpod -c mondebian /bin/bash
 -------------------------------------------------------------------------
 
 
-# Liveness par la commande
+#  par la commande
 
 
 <br>
@@ -95,7 +119,7 @@ spec:
 -----------------------------------------------------------------------
 
 
-# Liveness par le httpGet
+# par le httpGet
 
 
 <br>
@@ -120,7 +144,7 @@ spec:
 -----------------------------------------------------------------------
 
 
-# Liveness par TCPSocket
+# par TCPSocket
 
 <br>
 * idem mais en tcp
@@ -136,4 +160,54 @@ spec:
         host: google.fr
       initialDelaySeconds: 15
       periodSeconds: 20
+```
+
+----------------------------------------------------------------------
+
+
+# Readiness et liveness : exemple httpGet
+
+
+<br>
+```
+readinessProbe:
+  httpGet:
+    path: /monitoring/alive
+    port: 3401
+  initialDelaySeconds: 5
+  timeoutSeconds: 1
+  periodSeconds: 15
+livenessProbe:
+  httpGet:
+    path: /monitoring/alive
+    port: 3401
+    initialDelaySeconds: 15
+    timeoutSeconds: 1
+    periodSeconds: 15
+```
+
+----------------------------------------------------------------------
+
+# Readiness et liveness : exemple command
+
+
+```
+readinessProbe:
+  exec:
+    command:
+    - find
+    - alive.txt
+    - -mmin
+    - '-1'
+  initialDelaySeconds: 5
+  periodSeconds: 15
+livenessProbe:
+  exec:
+    command:
+    - find
+    - alive.txt
+    - -mmin
+    - '-1'
+  initialDelaySeconds: 15
+  periodSeconds: 15
 ```
