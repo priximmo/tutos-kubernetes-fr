@@ -30,12 +30,14 @@
 * sans limite
 
 ```
+apiVersion: v1
 kind: Pod
 metadata:
   name: monpod
 spec:
   containers:
-  - name: busybox
+  - name: madebian
+    image: debian
     command: ["/bin/bash","-c","while true; do sleep 2; done"]
 ```
 
@@ -52,9 +54,8 @@ docker inspect <nom_conteneur> -f "{{.HostConfig.Memory}}"
 ```
 ps aux | grep "/bin/bash"
 sudo cat /proc/<num_pid>/cgroup
-# et aussi
-ls -l /sys/fs/cgroup/memory/kubepods/burstable/...
-cat .../memory.limit_in_bytes
+#puis
+/sys/fs/cgroup/memory/kubepods/burstable/<pod_id>/memory.limit_in_bytes
 ```
 
 ---------------------------------------------------------------------------
@@ -65,12 +66,14 @@ cat .../memory.limit_in_bytes
 <br>
 
 ```
+apiVersion: v1
 kind: Pod
 metadata:
   name: monpod
 spec:
   containers:
-  - name: busybox
+  - name: madebian
+    image: madebian
     command: ["/bin/bash","-c","while true; do sleep 2; done"]
     resources:
       requests:
