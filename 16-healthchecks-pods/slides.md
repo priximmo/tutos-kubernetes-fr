@@ -38,9 +38,9 @@ kubectl exec -ti monpod -c mondebian /bin/bash
 
 
 <br>
-* certaines application ont besoin d'être restartées
+* certaines applications ont besoin d'être restartées
 
-* prévenir les images mal construites non fonctionnelles
+* prévenir des images mal construites non fonctionnelles
 
 * éviter les coupures lors de déploiements (zero downtime)
 
