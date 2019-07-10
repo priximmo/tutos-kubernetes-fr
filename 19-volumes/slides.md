@@ -25,14 +25,14 @@
 			- emptyDir : pas de persistence mais partage entre pods/conteneurs
 			- hostPath : répertoire partagé avec le host qui héberge le pod (attention déplacement)
 			- persistent volume claim
-			- externe : par exemple NFS mais de nombreux autres (columesclaim, glusterfs, vsphere...)
+			- externe : par exemple NFS mais de nombreux autres (volumes claim, glusterfs, vsphere...)
 
 Plus: https://kubernetes.io/docs/concepts/storage/volumes/ 
 
 
 -------------------------------------------------------------------------------------------
 
-# Volume : hostPah
+# Volume : hostPath
 
 <br>
 * volume du host monté dans le pod (dans le conteneur)
