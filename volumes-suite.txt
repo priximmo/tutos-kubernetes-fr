@@ -1,7 +1,7 @@
 %title: Kubernetes 
 %author: xavki
 
-# Pods : Persistent Volumes - découverte
+# Pods : Persistent Volumes
 
 
 <br>
@@ -42,9 +42,9 @@ spec:
 ```
 
 Rq :
-	- ReadWriteOnce : monté sur un simple pod
-	-	ReadOnlyMany : montés sur plusieurs pods en lecture
-	- ReadWriteMany : lecture écriture sur plusieurs pods
+	- ReadWriteOnce : monté sur un simple noeud
+	-	ReadOnlyMany : montés sur plusieurs noeuds en lecture
+	- ReadWriteMany : lecture écriture sur plusieurs noeuds
 
 ```
 kubectl get pv
@@ -99,3 +99,35 @@ spec:
           name: monstorage
 ```
 
+-----------------------------------------------------------------
+
+
+# Caractéristiques de la Classe de Storage
+
+
+<br>
+* reclaim policies :
+		- deleted
+		- 
+		-
+
+* provisionner :
+		- host
+		- nfs
+		- aws
+		...
+
+* parameters
+
+<br>
+```
+apiVersion: v1
+kind: StorageClass
+metadata:
+  name: mystorage
+provisioner: kubernetes.io/aws-ebs
+parameters:
+  type: io1
+  iopsPerGB: “10”
+  fsType: ext4
+```
