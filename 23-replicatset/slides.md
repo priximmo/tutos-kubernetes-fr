@@ -13,8 +13,8 @@
 
 <br>
 * 2 manières :
-		- attaché aux pods
-		- détaché des pods
+		- attachée aux pods
+		- détachée des pods
 
 <br>
 * attaché :
