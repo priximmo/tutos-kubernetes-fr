@@ -1,69 +1,71 @@
 %title: Kubernetes 
 %author: xavki
 
-# ConfigMaps et Secrets
+# ConfigMaps et Secrets : utilisation
 
 
 <br>
-* centraliser, améliorer et faciliter la gestion des configurations
+* création par la ligne de commande - CLI
 
 <br>
-* etcd, consul / vault...
-
-<br>
-* stocker les fichiers de configuration :
-		- les isoler
-		- les sécuriser
-		- les manipuler 
-		- les partager (entre pods)
-
-<br>
-* amélioration des config-file de docker/dockerfile
-		- reconstruction des images
-
-* secrets = configmaps avec encoding en base 64
-
-* attention sécurité : les secrets peuvent être manipulés en manifeste 
-
-
------------------------------------------------------------------------------
-
-# ConfigMaps et Secrets : création
+* possibilité de créer par manifeste
 
 
 <br>
-* exemple configmaps en CLI :
-
 ```
-kubectl create configmap langue --from-literal=LANGUAGE=Fr
-kubectl get configmaps
+kind: ConfigMap 
+apiVersion: v1 
+metadata:
+  name: personne
+data:
+  nom: Xavier 
+  passion: blogging
+  clef: |
+ 
+    age.key=40 
+    taille.key=180
 ```
 
-<br>
-* exemple configmaps en CLI :
 
-```
-kubectl create secret generic mysql_password --from-literal=MYSQL_PASSWORD=monmotdepasse
-kubectl get configmap
-```
+-----------------------------------------------------------------
+
+# Utilisations : configMapKeyRef
 
 <br>
-* update ? 3 méthodes
-
-```
-kubectl create configmap maconf --from-literal=LANGUAGE=Es -o yaml --dry-run | kubectl replace -f -
-```
+* 2 types :
+		- volumes
+		- configMapKeyRef
 
 <br>
-* puis recréer le pod en le supprimant 
+* variables env
 
--------------------------------------------------------------------------------------------------------
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: monpod
+spec:
+  containers:
+    - name: test-container
+      image: k8s.gcr.io/busybox
+      command: [ "/bin/sh", "-c", "env" ]
+      env:
+        - name: NOM
+          valueFrom:
+            configMapKeyRef:
+              name: personne
+              key: nom
+        - name: PASSION
+          valueFrom:
+            configMapKeyRef:
+              name: personne
+              key: passion
+```
 
-# ConfigMaps et Secrets : utilisation dans un pod
 
+-------------------------------------------------------------------
 
-<br>
-* variable d'environnement :
+# Utilisations : configMapKeyRef
 
 
 ```
@@ -73,56 +75,10 @@ metadata:
   name: monpod
 spec:
   containers:
-  - name: nginx
-    image: nginx
-    ports:
-    - containerPort: 80
-    volumeMounts:
-    - mountPath: /usr/share/nginx/html/index.html
-      name: monvolumeconfig
-  env:
-    - name: mavariable
-      valueFrom: 
-        configmapkeyref:
-        - name: monconfigmap
-          key: mavariable
+    - name: test-container
+      image: busybox
+      command: [ "/bin/sh", "-c", "env" ]
+      envFrom:
+        - configMapRef:
+            name: personne
 ```
-
-
--------------------------------------------------------------------------------------------------------
-
-# ConfigMaps et Secrets : utilisation dans un pod
-
-
-<br>
-* fichier monté en volume
-
-```
-apiVersion: v1
-kind: Pod
-metadata:
-  name: monpod
-spec:
-  containers:
-  - name: nginx
-    image: nginx
-    ports:
-    - containerPort: 80
-    volumeMounts:
-    - mountPath: /usr/share/nginx/html/index.html
-      name: monvolumeconfig
-  volumes:
-  - name: monvolumeconfig
-    configMap:
-      name: monconfigmap
-```
-
-Rq : monter plusieurs fichiers dans le même configMap et ajouter le volume en répertoire
-
-
--------------------------------------------------------------------------------------------------------
-
-
-# ConfigMaps et Secrets : utilisation dans un pod
-
-
