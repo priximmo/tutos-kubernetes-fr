@@ -1,7 +1,7 @@
 %title: Kubernetes 
 %author: xavki
 
-# Deployment : en avant la musique
+# Deployment : c'est de la magie !!!
 
 
 <br>
@@ -55,13 +55,40 @@ spec:
           httpGet:
              path: /
              port: 80
-             initialDelaySeconds: 5
-             periodSeconds: 5
-             successThreshold: 1
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          successThreshold: 1
 ```
 
 ------------------------------------------------------------------------
 
+# Exposition via le service
+
+* exposition via un service
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: myfirstdeploy
+spec:
+  clusterIP: 10.99.29.169
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: monfront
+  type: ClusterIP
+```
+
+* test continu 
+
+```
+while true;do curl -s 10.99.29.169 >/dev/null; echo 1;done
+```
+
+------------------------------------------------------------------------
 # Montée de version
 
 
@@ -91,9 +118,9 @@ spec:
           httpGet:
              path: /
              port: 80
-             initialDelaySeconds: 5
-             periodSeconds: 5
-             successThreshold: 1
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          successThreshold: 1
 ```
 
 -------------------------------------------------------------------------
@@ -115,8 +142,8 @@ spec:
   strategy:
     type: RollingUpdate				# type
     rollingUpdate:						# définition
-      maxSurge: 1							# nb pods
-      maxUnavailable: 1				# nb erreurs autorisées
+      maxSurge: 2							# nb pods sup autorisé
+      maxUnavailable: 0				# nb de pods down autorisés
   template:
     metadata:
       labels:
@@ -132,8 +159,8 @@ spec:
           httpGet:
              path: /
              port: 80
-             initialDelaySeconds: 5
-             periodSeconds: 5
-             successThreshold: 1
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          successThreshold: 1
 ```
 
