@@ -5,11 +5,11 @@
 
 
 <br>
-* voir plus large : pods, replicaset et déploiement
+* voir plus large : pods, replicaset > déploiement
 
 
 <br>
-* penser aux montées de versions : progressivité, itérations
+* penser aux montées de versions : progressivité, itérations, stratégie
 
 
 * penser aux rollbacks en cas d'imprévus
@@ -17,11 +17,26 @@
 
 * un outil unique
 
+
+---------------------------------------------------------------------------------------
+
+# Différents types de déploiements
+
+
 <br>
-* principe de rolling update / rolling release
-		- mise à jour progressive de chacune des instances avec vérifications continues
+* 2 proposés par kubernetes :
+		- rolling update : ex - 3 pods v1.0
+						- 1. création d'un pod v2.0
+						- 2. intégration de v2.0 dans pool si conforme
+						- 3. suppression d'un pod v1.0
+						- etc
+		- recreate : plus violent
+						- suppression des v1.0
+						- création des v2.0
 
-
+* ajout de 2 autres grâce à d'autres outils :
+		- blue/green : coexistence des 2 versions dont la nouvelle pour test
+		- canary deployment : coexistence des 2 mais migration des requêtes progressive
 
 ------------------------------------------------------------------------
 
@@ -140,10 +155,7 @@ spec:
     matchLabels:
       app: monfront
   strategy:
-    type: RollingUpdate				# type
-    rollingUpdate:						# définition
-      maxSurge: 2							# nb pods sup autorisé
-      maxUnavailable: 0				# nb de pods down autorisés
+    type: recreate				# type
   template:
     metadata:
       labels:
