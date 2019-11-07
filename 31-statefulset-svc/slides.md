@@ -10,6 +10,23 @@
 * utiles pour les BDD distribuées qui incluent un round robin / LB interne
 
 
+```
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv0 # à modifier
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 100Mi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/pvdata0" # à modifier
+---
+```
+
+
 -----------------------------------------------------------------------
 
 # StatefulSet
@@ -74,6 +91,9 @@ spec:
 # Test
 
 ```
-apt-get update && apt-get install -y dns-utils
+kubectl exec -ti monstatefulset-0 -- /bin/bash
+apt-get update && apt-get install -y dnsutils curl
 nslookup svc-dns
+curl svc-dns.default.svc.cluster.local
+curl curl monstatefulset-0.svc-dns.default.svc.cluster.local
 ```
