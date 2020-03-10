@@ -49,3 +49,50 @@ vim ~/.kube/config
 kubectl cluster-info
 kubectl get nodes
 ```
+
+--------------------------------------------------------------------
+
+
+# KUBESPRAY : autocomplétion
+
+
+
+<br>
+* disposer de l'autocomplétion :
+
+prérequis :
+
+```
+apt-get install bash-completion
+```
+
+installation :
+
+```
+echo "source <(kubectl completion bash)" >> ~/.bashrc
+```
+
+---------------------------------------------------------------------
+
+
+# KUBESPRAY : Alias bashrc
+
+
+``` 
+alias k='kubectl'
+
+alias kcc='kubectl config current-context'
+
+alias kg='kubectl get'
+
+alias kga='kubectl get all --all-namespaces'
+
+alias kgp='kubectl get pods'
+
+alias kgs='kubectl get services'
+
+alias ksgp='kubectl get pods -n kube-system'
+
+alias kuc='kubectl config use-context'
+```
+
