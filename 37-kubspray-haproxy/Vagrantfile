@@ -1,0 +1,94 @@
+Vagrant.configure(2) do |config|
+  common = <<-SHELL
+  if ! grep -q deploykub /etc/hosts; then  sudo echo "192.168.7.120     kdeploykub" >> /etc/hosts ;fi
+  if ! grep -q node01 /etc/hosts; then  sudo echo "192.168.7.121     kmaster01" >> /etc/hosts ;fi
+  if ! grep -q node02 /etc/hosts; then  sudo echo "192.168.7.122     kmaster02" >> /etc/hosts ;fi
+  if ! grep -q node03 /etc/hosts; then  sudo echo "192.168.7.123     knode01" >> /etc/hosts ;fi
+  if ! grep -q node04 /etc/hosts; then  sudo echo "192.168.7.124     haproxy01" >> /etc/hosts ;fi
+  if ! grep -q node05 /etc/hosts; then  sudo echo "192.168.7.125     haproxy02" >> /etc/hosts ;fi
+  sudo yum -y install vim tree net-tools telnet git python3-pip sshpass
+  sudo setsebool -P haproxy_connect_any=1
+  sudo echo "autocmd filetype yaml setlocal ai ts=2 sw=2 et" > /home/vagrant/.vimrc
+  sed -i 's/ChallengeResponseAuthentication no/ChallengeResponseAuthentication yes/g' /etc/ssh/sshd_config
+  sudo systemctl restart sshd
+  SHELL
+  
+
+	config.vm.box = "centos/7"
+	config.vm.box_url = "centos/7"
+
+	config.vm.define "kdeploykub" do |kdeploykub|
+		kdeploykub.vm.hostname = "kdeploykub"
+		kdeploykub.vm.network "private_network", ip: "192.168.7.120"
+		kdeploykub.vm.provider "virtualbox" do |v|
+			v.customize [ "modifyvm", :id, "--cpus", "1" ]
+			v.customize [ "modifyvm", :id, "--memory", "512" ]
+			v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      			v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+			v.customize ["modifyvm", :id, "--name", "kdeploykub"]
+		end
+		config.vm.provision :shell, :inline => common
+	end
+	config.vm.define "kmaster01" do |kmaster01|
+		kmaster01.vm.hostname = "kmaster01"
+		kmaster01.vm.network "private_network", ip: "192.168.7.121"
+		kmaster01.vm.provider "virtualbox" do |v|
+			v.customize [ "modifyvm", :id, "--cpus", "2" ]
+			v.customize [ "modifyvm", :id, "--memory", "2048" ]
+			v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      			v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+			v.customize ["modifyvm", :id, "--name", "kmaster01"]
+		end
+		config.vm.provision :shell, :inline => common
+	end
+	config.vm.define "kmaster02" do |kmaster02|
+		kmaster02.vm.hostname = "kmaster02"
+		kmaster02.vm.network "private_network", ip: "192.168.7.122"
+		kmaster02.vm.provider "virtualbox" do |v|
+			v.customize [ "modifyvm", :id, "--cpus", "2" ]
+			v.customize [ "modifyvm", :id, "--memory", "2048" ]
+			v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      			v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+			v.customize ["modifyvm", :id, "--name", "kmaster02"]
+		end
+		config.vm.provision :shell, :inline => common
+	end
+	config.vm.define "knode01" do |knode01|
+		knode01.vm.hostname = "knode01"
+		knode01.vm.network "private_network", ip: "192.168.7.123"
+		knode01.vm.provider "virtualbox" do |v|
+			v.customize [ "modifyvm", :id, "--cpus", "2" ]
+			v.customize [ "modifyvm", :id, "--memory", "2048" ]
+			v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      			v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+			v.customize ["modifyvm", :id, "--name", "knode01"]
+		end
+		config.vm.provision :shell, :inline => common
+	end
+	config.vm.define "haproxy01" do |haproxy01|
+		haproxy01.vm.hostname = "haproxy01"
+		haproxy01.vm.network "private_network", ip: "192.168.7.124"
+		haproxy01.vm.provider "virtualbox" do |v|
+			v.customize [ "modifyvm", :id, "--cpus", "1" ]
+			v.customize [ "modifyvm", :id, "--memory", "512" ]
+			v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      			v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+			v.customize ["modifyvm", :id, "--name", "haproxy01"]
+		end
+		config.vm.provision :shell, :inline => common
+	end
+	config.vm.define "haproxy02" do |haproxy02|
+		haproxy02.vm.hostname = "haproxy02"
+		haproxy02.vm.network "private_network", ip: "192.168.7.125"
+		haproxy02.vm.provider "virtualbox" do |v|
+			v.customize [ "modifyvm", :id, "--cpus", "1" ]
+			v.customize [ "modifyvm", :id, "--memory", "512" ]
+			v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      			v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+			v.customize ["modifyvm", :id, "--name", "haproxy02"]
+		end
+		config.vm.provision :shell, :inline => common
+	end
+
+end
+

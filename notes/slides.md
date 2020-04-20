@@ -26,10 +26,10 @@ apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: cr1
 rules:
-- apiGroups: [""]
+- apiGroups: [""] # "" indicates the core API group
   resources: ["configmaps"]
   verbs: ["get", "list", "watch", "patch"]
-- apiGroups: [""] 
+- apiGroups: [""] # "" indicates the core API group
   resources: ["pods"]
   verbs: ["describe"]
 ```
@@ -96,7 +96,7 @@ metadata:
   name: pod-default
   namespace: default
 spec:
-  serviceAccountName: xavki
+  #serviceAccountName: xavki
   containers:
   - image: alpine:3.9
     name: alpine
