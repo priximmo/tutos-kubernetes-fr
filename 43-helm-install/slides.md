@@ -1,7 +1,7 @@
 %title: Kubernetes 
 %author: xavki
 
-# HELM
+# HELM : encore un dépot ??
 
 
 <br>
@@ -10,6 +10,13 @@
 	* simplifier la génération des manifests yaml
 	* versionning : updates/rollback
 	* charts : stack
+	* hub helm : https://hub.helm.sh/
+
+
+* attention évolution V2 > V3
+	* suppression de tiller (client/server)
+	* commandes renommage (fetch > pull, delete > uninstall, inspect > show)
+	* requirements.yaml > Chart.yaml
 
 <br>
 * installation :
@@ -35,7 +42,8 @@ helm repo list
 * rechercher un charts:
 
 ```
-helm search hub wordpress
+helm search hub wordpress		# cherche des charts sur le hub
+helm search repo wordpress	# cherche des dépôts avec mots clefs dans charts
 ```
 
 <br>
