@@ -14,7 +14,13 @@
 
 * nécessité de créer un ingress (accesible depuis extérieur)
 
-* se rendre dans la GUI > cluster > tools > monitoring 
+* se rendre dans la GUI > cluster > tools > monitoring
+
+<br>
+* attention :
+		* CPU : 4 par master
+		* ram : 4G par worker
+		* vagrant : passer par virtualbox (arrêt/modif/restart)
 
 --------------------------------------------------------
 
@@ -56,12 +62,23 @@ Rq :faire pointer le loadbalancer externe vers ce port
 kind: Service
 apiVersion: v1
 metadata:
-  name: grafana
+  name: graf
 spec:
   type: ExternalName
   externalName: access-grafana.cattle-prometheus.svc.cluster.local
   ports:
   - port: 80
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: prom
+spec:
+  type: ExternalName
+  externalName: access-prometheus.cattle-prometheus.svc.cluster.local
+  ports:
+  - port: 80
+
 ```
 
 ------------------------------------------------------------------------------
@@ -74,6 +91,7 @@ spec:
 * création d'un ingress vers le service de default
 
 ```
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: grafana
@@ -86,6 +104,31 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: grafana
+          serviceName: graf
+          servicePort: 80
+```
+
+------------------------------------------------------------------------------
+
+
+# RANCHER : monitoring Prometheus/Grafana
+
+
+<br>
+```
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: prometheus
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: prom.kub
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: prom
           servicePort: 80
 ```
