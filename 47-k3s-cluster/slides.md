@@ -18,7 +18,7 @@ curl -sfL https://get.k3s.io | K3S_TOKEN=<ip> K3S_URL=https://<ip>:6443 sh -
 * flannel
 
 ```
-suod vim /etc/systemd/system/k3s-agent.service
+sudo vim /etc/systemd/system/k3s-agent.service
 ExecStart=/usr/local/bin/k3s \
     agent \
     --flannel-iface 'eth1'
