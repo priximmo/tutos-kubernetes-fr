@@ -1,0 +1,10 @@
+replicaCount: 1
+image:
+  repository: "paulbouwer/hello-kubernetes"
+  tag: "1.7"
+  pullPolicy: IfNotPresent
+  message: "Salut Xavki !!!"
+service:
+  type: NodePort
+  port: 80
+

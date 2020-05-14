@@ -6,10 +6,10 @@
 
 <br>
 * Pourquoi faire ?
-	* gestionnaire de paquets dédié à K8S
+	* gestionnaire de "paquets" dédié à K8S
 	* simplifier la génération des manifests yaml
 	* versionning : updates/rollback
-	* charts : stack
+	* charts : stack de fichiers manifests
 	* hub helm : https://hub.helm.sh/
 
 
@@ -53,3 +53,19 @@ helm search repo wordpress	# cherche des dépôts avec mots clefs dans charts
 https://hub.helm.sh/
 https://hub.helm.sh/charts/bitnami/wordpress
 ```
+
+-----------------------------------------------------------------------
+
+# HELM : structure
+
+
+<br>
+```
+hello-world /
+  Chart.yaml 		# Description Chart
+  values.yaml		# Variables (template)
+  templates /		# templates de manifests
+  charts /			# sous charts (optionnel)
+  .helmignore		# ignorer des fichiers pour le dépôt
+```
+
