@@ -69,7 +69,7 @@ spec:
             value: "K8Demo"
           - name: CASSANDRA_DC # split by DC
             value: "DC1-K8Demo"
-          - name: CASSANDRA_RACK " split by rack
+          - name: CASSANDRA_RACK # split by rack
             value: "Rack1-K8Demo"
           - name: POD_IP
             valueFrom:
