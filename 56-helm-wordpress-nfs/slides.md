@@ -1,7 +1,7 @@
 %title: Kubernetes 
 %author: xavki
 
-# HELM : installation de wordpress
+# HELM : installation de wordpress & NFS
 
 
 <br>
@@ -13,6 +13,21 @@
 * création d'un répertoire local pour stockage hostpath (pv)
 
 * sur les nodes/workers :
+
+```
+sudo mkdir -p /srv/wordpress/{db,files}
+sudo chmod 777 -R /srv/wordpress/
+sudo apt-get install nfs-kernel-server
+ou sudo yum -y install nfs-utils rpcbind
+sudo vim /etc/exports
+/srv/wordpress/db 192.168.7.0/24(rw,sync,no_root_squash)
+/srv/wordpress/files 192.168.7.0/24(rw,sync,no_root_squash)
+sudo systemctl restart nfs rpcbind
+sudo exportfs -a
+# test sudo mount -t nfs 192.168.7.120:/srv/wordpress/db /tmp
+```
+
+* sans nfs
 
 ```
 ssh -o "StrictHostKeyChecking no" vagrant@node05 "sudo mkdir -p /wordpress/files && sudo mkdir -p /wordpress/db && sudo chmod -R 775 /wordpress"
@@ -32,14 +47,16 @@ kind: PersistentVolume
 metadata:
   name: mariadb-pv
 spec:
+  storageClassName: mariadb
   capacity:
     storage: 1Gi
   accessModes:
     - ReadWriteOnce
     - ReadOnlyMany
   persistentVolumeReclaimPolicy: Retain
-  hostPath:
-    path: /wordpress/db
+  nfs:
+    server: 192.168.7.120
+    path: "/srv/wordpress/db"
 ```
 
 ---------------------------------------------------------------------------------
@@ -56,14 +73,16 @@ kind: PersistentVolume
 metadata:
   name: wordpress-pv
 spec:
+  storageClassName: wordpress
   capacity:
     storage: 1Gi
   accessModes:
     - ReadWriteOnce
     - ReadOnlyMany
   persistentVolumeReclaimPolicy: Retain
-  hostPath:
-    path: /wordpress/files
+  nfs:
+    server: 192.168.7.120
+    path: "/srv/wordpress/files"
 ```
 
 -----------------------------------------------------------------------------
@@ -80,7 +99,7 @@ apiVersion: v1
 metadata:
   name: wordpress-wordpress
 spec:
-  storageClassName: ""
+  storageClassName: wordpress
   accessModes:
     - ReadWriteOnce
   resources:
@@ -102,7 +121,7 @@ apiVersion: v1
 metadata:
   name: data-wordpress-mariadb-0
 spec:
-  #storageClassName: manual
+  storageClassName: mariadb
   accessModes:
     - ReadWriteOnce
   resources:
@@ -113,4 +132,5 @@ spec:
 
 
 ```
-helm install --set wordpressUsername=admin,wordpressPassword=adminpassword,mariadb.mariadbRootPassword=secretpassword,mariadb.master.persistence.existingClaim=data-wordpress-mariadb-0,persistence.existingClaim=wordpress-wordpress,allowEmptyPassword=false stable/wordpress --generate-name
+helm install --set service.type=NodePort,ingress.enabled=true,ingress.hostname=wordpress.kub,wordpressUsername=admin,wordpressPassword=adminpassword,mariadb.mariadbRootPassword=secretpassword,mariadb.master.persistence.existingClaim=data-wordpress-mariadb-0,persistence.existingClaim=wordpress-wordpress,allowEmptyPassword=false bitnami/wordpress --generate-name
+```
