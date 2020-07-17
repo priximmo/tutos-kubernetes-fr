@@ -36,7 +36,7 @@
 * configuration de kubespray
 
 ```
-cp -r inventory/sample: inventory/mykub
+cp -r inventory/sample inventory/mykub
 vim inventory/mykub/group_vars/all/all.yml
 ## External LB example config
 apiserver_loadbalancer_domain_name: "elb.kub"
