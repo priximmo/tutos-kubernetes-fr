@@ -2,11 +2,13 @@
 
 ## Tutoriels en français sur Kubernetes
 
-- 1. [KUBERNETES - 0. FORMATIONS](https://www.youtube.com/watch?v=37VLg7mlHu8)
-- 2. [KUBERNETES - 1. INTRODUCTION](https://www.youtube.com/watch?v=vFfngcRPj9M)
-- 3. [KUBERNETES - 2. NOTIONS ET DÉFINITIONS](https://www.youtube.com/watch?v=Ew7QigU8JMQ)
+Playlist : https://www.youtube.com/playlist?list=PLn6POgpklwWqfzaosSgX2XEKpse5VY2v5
+
+- 1. [KUBERNETES - FORMATIONS POUR DEBUTER | TUTOS FR #0](https://www.youtube.com/watch?v=37VLg7mlHu8)
+- 2. [KUBERNETES - 1. INTRODUCTION | TUTOS FR](https://www.youtube.com/watch?v=vFfngcRPj9M)
+- 3. [KUBERNETES - 2. NOTIONS ET DÉFINITIONS | TUTOS FR](https://www.youtube.com/watch?v=Ew7QigU8JMQ)
 - 4. [KUBERNETES - 3. MINIKUBE](https://www.youtube.com/watch?v=p3FsrSoFZ-Q)
-- 5. [KUBERNETES - 4. INSTALLATION PRE-REQUIS](https://www.youtube.com/watch?v=wa9YDtiE2vo)
+- 5. [KUBERNETES - 4. INSTALLATION PRE-REQUIS | TUTOS FR](https://www.youtube.com/watch?v=wa9YDtiE2vo)
 - 6. [KUBERNETES - 5. INSTALLATION : KUBADM INIT, FLANNEL...](https://www.youtube.com/watch?v=3Ebd0hkaHh0)
 - 7. [KUBERNETES - 5BIS.  BUG VIRTUALBOX/VAGRANT/FLANNEL](https://www.youtube.com/watch?v=Kne99iibJA0)
 - 8. [KUBERNETES - 6. AUTOCOMPLETION, ALIAS ET ACCES DISTANT](https://www.youtube.com/watch?v=jnJfBAdujjE)
@@ -55,7 +57,10 @@
 - 51. [K3S - 49. CLUSTER : AJOUT D'UN WORKER](https://www.youtube.com/watch?v=ahavAvGau_4)
 - 52. [KUBERNETES - 50. K3S : TRAEFIK COMME INGRESS CONTROLLER](https://www.youtube.com/watch?v=89k4FV6TTlQ)
 - 53. [KUBERNETES - 51. K3S : GITLAB CI INTEGRATION ET RUNNER](https://www.youtube.com/watch?v=2bzM2SP7epw)
-- 54. [KUBERNETES - 52. K3D : KUBERNETES DANS DOCKER](https://www.youtube.com/watch?v=f10VP3pXbsI)
-- 55. [KUBERNETES - 54. HELM : PREMIER CHART (DEPLOYMENT, SERVICE, INGRESS)](https://www.youtube.com/watch?v=Ncqh6aIfD48)
-- 56. [KUBERNETES - 55. HELM : REVISIONS ET ROLLBACK](https://www.youtube.com/watch?v=OwaUA2mdIAQ)
+- 54. [KUB - 52. K3D : KUBERNETES DANS DOCKER](https://www.youtube.com/watch?v=f10VP3pXbsI)
+- 55. [KUBERNETES - 53. HELM : INTRODUCTION ET INSTALLATION](https://www.youtube.com/watch?v=W3nfFUdgLvU)
+- 56. [KUBERNETES - 54. HELM : PREMIER CHART (DEPLOYMENT, SERVICE, INGRESS)](https://www.youtube.com/watch?v=Ncqh6aIfD48)
+- 57. [HELM : REVISIONS ET ROLLBACK - 55 #KUBERNETES](https://www.youtube.com/watch?v=OwaUA2mdIAQ)
+- 58. [K8S - 56. #HELM : INSTALLATION #WORDPRESS SUR NFS](https://www.youtube.com/watch?v=KUjt_3eQt2Y)
+- 59. [KUBERNETES - 57. INSTALLER WORDPRESS SANS HELM ET SUR NFS](https://www.youtube.com/watch?v=wTyeq4p1tkM)
 
