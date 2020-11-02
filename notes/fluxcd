@@ -1,0 +1,46 @@
+https://blog.container-solutions.com/fluxcd-argocd-jenkins-x-gitops-tools
+
+
+
+FLUXCD
+
+limité à un namesapce & un repo > inconvénients
+cli fluxctl
+no gui
+peu de contraintes à manager
+1 ou plusieurs cluster
+prendre en compte nouvelle version d'image
+suppression possible si suppression du repo > garbage collector
+
+
+sudo snap install fluxctl
+
+kubectl create namespace flux
+
+fluxctl install --git-url=git@gitlab.com:xavki/testflux.git --git-user=xavki --git-email=moi@moi.com --git-path=app --namespace=flux > flux.yaml
+
+
+kubectl apply -f flux.yaml
+
+
+kubectl get pods -n flux
+
+# basé sur les version d'images
+fluxctl list-images --workload default:deployment/hello-un --k8s-fwd-ns flux  
+
+fluxctl identity --k8s-fwd-ns flux
+
+fluxctl list-workloads --k8s-fwd-ns flux
+
+fluxctl deautomate --workload=default:deployment/helloworld
+
+--git-poll-interval=2m
+
+fluxctl sync --k8s-fwd-ns flux
+
+
+
+
+
+
+https://skaffold.dev/
