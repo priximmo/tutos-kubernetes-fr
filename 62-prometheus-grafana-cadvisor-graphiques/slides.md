@@ -1,7 +1,7 @@
 %title: Kubernetes 
 %author: xavki
 
-# PROMETHEUS : SANS HELM - INSTALLATION GRAFANA
+# PROMETHEUS : SANS HELM - CADVISOR + DASHBOARDS
 
 
 <br>
