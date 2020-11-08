@@ -63,4 +63,9 @@ Playlist : https://www.youtube.com/playlist?list=PLn6POgpklwWqfzaosSgX2XEKpse5VY
 - 57. [HELM : REVISIONS ET ROLLBACK - 55 #KUBERNETES](https://www.youtube.com/watch?v=OwaUA2mdIAQ)
 - 58. [K8S - 56. #HELM : INSTALLATION #WORDPRESS SUR NFS](https://www.youtube.com/watch?v=KUjt_3eQt2Y)
 - 59. [KUBERNETES - 57. INSTALLER WORDPRESS SANS HELM ET SUR NFS](https://www.youtube.com/watch?v=wTyeq4p1tkM)
+- 60. [K8S - 58. PROMETHEUS : INSTALLATION SANS HELM ET AVEC NFS (ON PREMISE)](https://www.youtube.com/watch?v=Q21mpBL7p3k)
+- 61. [K8S - 59. MONITORING : NODE EXPORTER ET AJOUT DYNAMIQUE A PROMETHEUS](https://www.youtube.com/watch?v=AVqXZBN_Vjg)
+- 62. [K8S - 60. MONITORING DE PODS : EXEMPLE AVEC REDIS ET SON EXPORTER](https://www.youtube.com/watch?v=j7iF-i1UAMc)
+- 63. [K8S - 61. MONITORING : INSTALLATION DE GRAFANA (INGRESS, PV, DEPLOYMENT...)](https://www.youtube.com/watch?v=oO95QbLctJs)
+- 64. [K8S - 62. MONITORING : MISE EN PLACE DE CADVISOR ET DASHBOARDS](https://www.youtube.com/watch?v=q7bf4NrCQwE)
 
