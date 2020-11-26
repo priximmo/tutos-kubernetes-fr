@@ -61,11 +61,7 @@ kubectl create ns fluxcd
 * installation via apply
 
 ```
-fluxctl install \
---registry.pollInterval=1m \
---git-url=<depot> \
---git-path=namespaces,workloads \
---namespace=fluxcd | kubectl apply -f -
+fluxctl install --git-email=moi@moi.com --git-url=git@gitlab.com:xavki/testflux.git --git-path=workloads --namespace=fluxcd | kubectl apply -f -
 ```
 
 Rq : organisation (namespace,workloads)
