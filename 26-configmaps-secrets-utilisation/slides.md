@@ -5,13 +5,16 @@
 
 
 <br>
+
 * création par la ligne de commande - CLI
 
 <br>
+
 * possibilité de créer par manifeste
 
 
 <br>
+
 ```
 kind: ConfigMap 
 apiVersion: v1 
@@ -38,9 +41,11 @@ data:
 
 
 <br>
+
 * variables env : configMapKeyRef
 
 <br>
+
 * une à une :
 
 ```
@@ -72,6 +77,7 @@ spec:
 
 
 <br>
+
 * toute la configmap
 
 ```
@@ -99,6 +105,7 @@ spec:
 
 
 <br>
+
 ```
 kind: ConfigMap
 apiVersion: v1
@@ -118,6 +125,7 @@ data:
 
 
 <br>
+
 * fichier monté en volume
 
 ```
@@ -150,6 +158,7 @@ spec:
 
 
 <br>
+
 * création
 
 ```
