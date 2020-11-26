@@ -7,6 +7,7 @@
 
 <br>
 
+
 * scaling : création de même instance du me service
 		- supporter la charge principalement
 
@@ -17,6 +18,7 @@ kubectl create deployment monnginx --image nginx
 ```
 
 <br>
+
 * exemple nginx :
 
 ```
@@ -24,6 +26,7 @@ kubectl create service nodeport monnginx --tcp 8080:80
 ```
 
 <br>
+
 * éditer notre pod
 
 ```
@@ -37,6 +40,7 @@ echo "instance 1" > /usr/share/nginx/html/index.html
 
 
 <br>
+
 * CLI
 
 ```
@@ -44,6 +48,7 @@ kubectl scale deployment monnginx --replicas=2
 ```
 
 <br>
+
 * Edition du second pod
 
 ```
@@ -52,6 +57,7 @@ echo "instance 1" > /usr/share/nginx/html/index.html
 ```
 
 <br>
+
 * autoscale
 
 ```

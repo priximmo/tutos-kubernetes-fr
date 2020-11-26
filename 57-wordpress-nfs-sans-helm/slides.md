@@ -5,11 +5,13 @@
 
 
 <br>
+
 * Wordpress :
 	* datas applicatives (wordpress)
 	* datas base de données (mysql)
 
 <br>
+
 * création d'un répertoire local pour stockage hostpath (pv)
 
 * sur les nodes/workers :

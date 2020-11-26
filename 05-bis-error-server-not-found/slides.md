@@ -5,12 +5,15 @@
 -> Bug sur Vagrant / VirtualBox <-
 
 <br>
+
 * flannel : pods network
 
 <br>
+
 * prend pas l'ip de eth1
 
 <br>
+
 * diagnostiquer
 
 ```
@@ -26,9 +29,11 @@ Vérifier INTERNAL_IP => si la même et pas le bon réseau
 
 
 <br>
+
 * modifier /etc/hosts sur le master et les noeuds
 
 <br>
+
 * ajouter ip suivi du nom de la machine dans kub
 sur tous les noeuds
 
@@ -37,6 +42,7 @@ sur tous les noeuds
 ```
 
 <br>
+
 * puis supprimer les pods flannel
 
 * ils vont se reconstruire en prenant en compte la modification
@@ -49,6 +55,7 @@ kubectl delete pods flannel-xxx -n kybe-system
 Autant de fois que de pods
 
 <br>
+
 * Vérifier
 
 ```

@@ -6,6 +6,7 @@
 
 
 <br>
+
 * manager un cluster = ressources + moyens
 
 * plus facile dans le cloud
@@ -15,6 +16,7 @@
 * et plus on a de cluster...
 
 <br>
+
 * rancher : 
 		*	provisionner des clusters : cloud à on premise
 		* importer des clusters pour les managers
@@ -38,6 +40,7 @@
 
 
 <br>
+
 * gestion par projet :
     * Assign users access to a group of namespaces
     * Assign users specific roles in a project. A role can be owner, member, read-only, or custom
@@ -48,6 +51,7 @@
     * Configure pod security policies
 
 <br>
+
 * pipeline :
     * Build your application from code to image.
     * Validate your builds.

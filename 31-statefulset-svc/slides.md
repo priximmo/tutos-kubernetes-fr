@@ -5,6 +5,7 @@
 
 
 <br>
+
 * création de service headless pour dns interne qui résoud tous les pods
 
 * utiles pour les BDD distribuées qui incluent un round robin / LB interne

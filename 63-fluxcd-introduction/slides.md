@@ -7,6 +7,7 @@
 
 
 <br>
+
 * outil de continuous deployement (CD)
 
 * de la famille des gitops kubernetes
@@ -17,24 +18,31 @@ cluster kub + flux >< gitlab/github < dépôt git descriptif
 ```
 
 <br>
+
 * scrutation de dépôts descriptifs
 
 <br>
+
 * mise à jour automatique des ressources
 
 <br>
+
 * peut être couplé à Helm
 
 <br>
+
 * sous forme d'operator (extension des ressources d'un cluster)
 
 <br>
+
 * check à fréquence régulière (5min)
 
 <br>
+
 * concurrence > argocd / jenkins x
 
 <br>
+
 Dépôt : https://github.com/fluxcd/flux
 Site: https://fluxcd.io/
 
@@ -45,6 +53,7 @@ Site: https://fluxcd.io/
 
 
 <br>
+
 PLUS :
 
 * command line : fluxctl
@@ -59,6 +68,7 @@ PLUS :
 		https://registry.terraform.io/modules/runoncloud/fluxcd/kubernetes/latest
 
 <br>
+
 MOINS :
 
 * limité à un namespace et un repo (potentiellement plusieurs flux)

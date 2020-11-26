@@ -6,6 +6,7 @@
 
 
 <br>
+
 * initilisation sur le master
 
 
@@ -17,6 +18,7 @@ kubeadm init --apiserver-advertise-address=192.168.56.101
 Rq :édition du host nécessaire sur Vbox et Vagrant
 
 <br>
+
 * création du fichier de configuration
 
 ```
@@ -32,6 +34,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 
 <br>
+
 * ajout pod pour gestion du réseau interne
 
 ```
@@ -63,6 +66,7 @@ kubectl get nodes
 ```
 
 <br>
+
 * on fait le join sur le node :
 
 ```
@@ -71,6 +75,7 @@ kubeadm join 192.168.56.101:6443 --token 5q8bsc.141bc9wjsc026u6w
 ```
 
 <br>
+
 * on vérifie l'état des pods system :
 
 ```

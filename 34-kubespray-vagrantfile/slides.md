@@ -5,6 +5,7 @@
 
 
 <br>
+
 * installation vagrant : cf Vagrantfile
 
 * 1 machine deploiement, 3 master et 2 nodes 
@@ -12,6 +13,7 @@
 * attention : bonne connexion et prend du temps
 
 <br>
+
 * kubespray :
 	* multi provider : on prem, openstack, gcp...
 	* automatisation via ansible

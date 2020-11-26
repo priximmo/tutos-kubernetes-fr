@@ -6,6 +6,7 @@
 
 
 <br>
+
 * Recommandations :
 
 ```
@@ -18,6 +19,7 @@ pas de swap
 ```
 
 <br>
+
 * prérequis : installation de docker
 
 ```
@@ -49,12 +51,14 @@ systemctl daemon-reload && systemctl restart docker
 * désactivation du swap
 
 <br>
+
 ```
 swapoff -a
 vim /etc/fstab
 ```
 
 <br>
+
 * mise en place du dépôt apt :
 
 ```
@@ -64,6 +68,7 @@ sudo add-apt-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
 ```
 
 <br>
+
 * installation des binaires kubernetes :
 
 ```

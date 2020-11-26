@@ -4,6 +4,7 @@
 # Pods : ressources
 
 <br>
+
 * 2 cas à retenir :
 	- requests : minimum par conteneur
 		- important pour la répartition sur les noeuds (scheduler)
@@ -34,11 +35,13 @@ kubectl get apiservices
 
 
 <br>
+
 * installation de metrics-server :
     - collecte de métriques pourles fournir par API (kubelet)
     - CPU ou mémoire notamment
 
 <br>
+
 0- agregation layer
 
 ```
@@ -48,6 +51,7 @@ https://kubernetes.io/docs/tasks/access-kubernetes-api/configure-aggregation-lay
 Rq : sauf si installation kubespray
 
 <br>
+
 1- clone de metrics-server
 
 ```
@@ -61,6 +65,7 @@ git clone https://github.com/kubernetes-incubator/metrics-server.git
 
 
 <br>
+
 2- sans tls
 
 ```
@@ -73,6 +78,7 @@ git clone https://github.com/kubernetes-incubator/metrics-server.git
 ```
 
 <br>
+
 3- vérification
 
 ```
@@ -87,6 +93,7 @@ kubectl top nodes
 
 
 <br>
+
 ```
 resources:
   requests:
@@ -110,6 +117,7 @@ Maximum = 100 Mi
 
 
 <br>
+
 ```
 resources:
   requests:
@@ -131,9 +139,11 @@ Remarque:
 
 
 <br>
+
 * défintion du comportement par défaut
 
 <br>
+
 
 ```
 apiVersion: v1

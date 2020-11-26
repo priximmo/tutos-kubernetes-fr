@@ -4,6 +4,7 @@
 # Pods : mémoire et CPU... les dessous
 
 <br>
+
 * 2 cas à retenir :
 	- requests : minimum par conteneur
 		- important pour la répartition sur les noeuds (scheduler)
@@ -15,6 +16,7 @@
 	- Mémoire : 100M
 
 <br>
+
 * limit process :
 	- kubernetes > docker > linux kernel
 
@@ -27,6 +29,7 @@
 
 
 <br>
+
 * sans limite
 
 ```
@@ -42,6 +45,7 @@ spec:
 ```
 
 <br>
+
 * Docker : conteneur et filtre sur la limite de mémoire
 
 ```
@@ -49,6 +53,7 @@ docker inspect <nom_conteneur> -f "{{.HostConfig.Memory}}"
 ```
 
 <br>
+
 * Système : recherche du cgroup
 
 ```
@@ -64,6 +69,7 @@ sudo cat /proc/<num_pid>/cgroup
 
 
 <br>
+
 
 ```
 apiVersion: v1

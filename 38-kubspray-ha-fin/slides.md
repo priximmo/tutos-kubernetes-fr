@@ -33,6 +33,7 @@
 # KUBESPRAY & HAPROXY : kubespray
 
 <br>
+
 * configuration de kubespray
 
 ```
@@ -54,6 +55,7 @@ loadbalancer_apiserver:
 # KUBESPRAY & HAPROXY : kubectl
 
 <br>
+
 * installation de kubectl sur une machine distante
 
 ```
@@ -81,6 +83,7 @@ kubectl cluster-info
 
 
 <br>
+
 * sur un des master, récupération du certificat
 
 ```
@@ -88,9 +91,11 @@ cat /etc/kubernetes/admin.conf
 ```
 
 <br>
+
 * modification de /etc/hosts pour elb.kub
 
 <br>
+
 * ajout du certificat sur la machine distante
 
 ```
@@ -107,10 +112,12 @@ kubectl get nodes
 
 
 <br>
+
 * ouverture de la GUI haproxy
 
 
 <br>
+
 * pas de bol je perds un master...
 
 ```
@@ -118,6 +125,7 @@ ansible-playbook -i inventory/mykub/inventory.ini -k -K -b -e "node=kmaster01" r
 ```
 
 <br>
+
 * et en plus je perds un haproxy...
 
 ```

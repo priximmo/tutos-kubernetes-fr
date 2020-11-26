@@ -5,6 +5,7 @@
 
 
 <br>
+
 3 ressources importantes et combinées :
 
 * cluster role : un rôle est un profil permettant des accès/actions/ressources
@@ -71,6 +72,7 @@ roleRef:
 
 
 <br>
+
 * récupération du token
 
 ```
@@ -78,6 +80,7 @@ kubectl get sa xavki -o yaml
 ```
 
 <br>
+
 * visualisation du secrets
 
 ```

@@ -6,12 +6,15 @@
 
 
 <br>
+
 * créer un projet gitlab
 
 <br>
+
 * installation du cluster
 
 <br>
+
 * récupération du certificat
 
 ```
@@ -25,6 +28,7 @@ kubectl config view --raw -o=jsonpath='{.clusters[0].cluster.certificate-authori
 
 
 <br>
+
 * rbac gitlab
 
 ```
@@ -44,6 +48,7 @@ subjects:
 ```
 
 <br>
+
 * récupération du token
 
 ```
@@ -59,9 +64,11 @@ echo $TOKEN
 
 
 <br>
+
 * installation du runner
 
 <br>
+
 * test
 
 ```

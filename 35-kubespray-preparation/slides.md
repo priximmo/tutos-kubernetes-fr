@@ -5,6 +5,7 @@
 
 
 <br>
+
 * installation vagrant : cf Vagrantfile
 
 * 1 machine deploiement, 3 master et 2 nodes 
@@ -12,6 +13,7 @@
 * attention : bonne connexion et prend du temps
 
 <br>
+
 * kubespray :
 	* multi provider : on prem, openstack, gcp...
 	* automatisation via ansible
@@ -34,9 +36,11 @@
 
 
 <br>
+
 * sur la machine de déploiement : deploykub
 
 <br>
+
 * clone du dépôt
 
 ```
@@ -44,6 +48,7 @@ git clone https://github.com/kubernetes-sigs/kubespray.git
 ```
 
 <br>
+
 * installation de sshpass (ansble password)
 
 ```
@@ -51,6 +56,7 @@ yum install sshpass
 ```
 
 <br>
+
 * installation des requirements
 
 ```
@@ -58,6 +64,7 @@ pip3 install -r requirements.txt
 ```
 
 <br>
+
 * on peut spécifier la conf du ansible.cfg
 
 ```
@@ -74,6 +81,7 @@ become_ask_pass=False
 
 
 <br>
+
 * copie du sample
 
 ```

@@ -5,13 +5,16 @@
 
 
 <br>
+
 * gérer le versionning des déploiements
 
 <br>
+
 * permettre un retour arrière rapide
 		- sans fichier à éditer
 
 <br>
+
 * utilisation des annotations 
 
 ```
@@ -28,6 +31,7 @@ spec:
 
 
 <br>
+
 
 # Avec rolling update
 
@@ -75,6 +79,7 @@ spec:
 
 
 <br>
+
 * état du déploiement
 
 ```
@@ -82,6 +87,7 @@ kubectl rollout status deployments <nom>
 ```
 
 <br>
+
 * mettre en pause
 
 ```
@@ -95,6 +101,7 @@ kubectl rollout resume deployments <nom>
 ```
 
 <br>
+
 * historique
 
 ```
@@ -103,6 +110,7 @@ kubectl rollout history deployments <nom> --revision=3
 ```
 
 <br>
+
 * surtout le retour arrière
 
 ```

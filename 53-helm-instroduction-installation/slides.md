@@ -5,6 +5,7 @@
 
 
 <br>
+
 * Pourquoi faire ?
 	* gestionnaire de "paquets" dédié à K8S
 	* simplifier la génération des manifests yaml
@@ -19,6 +20,7 @@
 	* requirements.yaml > Chart.yaml
 
 <br>
+
 * installation :
 
 ```
@@ -32,6 +34,7 @@ chmod 755 get_helm.sh
 # HELM : commandes
 
 <br>
+
 * lister les repository :
 
 ```
@@ -39,6 +42,7 @@ helm repo list
 ```
 
 <br>
+
 * rechercher un charts:
 
 ```
@@ -47,6 +51,7 @@ helm search repo wordpress	# cherche des dépôts avec mots clefs dans charts
 ```
 
 <br>
+
 * helm hub :
 
 ```
@@ -60,6 +65,7 @@ https://hub.helm.sh/charts/bitnami/wordpress
 
 
 <br>
+
 ```
 hello-world /
   Chart.yaml 		# Description Chart

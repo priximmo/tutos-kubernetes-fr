@@ -6,6 +6,7 @@
 
 
 <br>
+
 * ajout d'un noeud
 
 ```
@@ -15,6 +16,7 @@ curl -sfL https://get.k3s.io | K3S_TOKEN=<ip> K3S_URL=https://<ip>:6443 sh -
 ```
 
 <br>
+
 * flannel
 
 ```

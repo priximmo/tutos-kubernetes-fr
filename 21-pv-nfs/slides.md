@@ -5,6 +5,7 @@
 
 
 <br>
+
 * installation du serveur nfs :
 
 ```
@@ -18,6 +19,7 @@ sudo exportfs -a
 ```
 
 <br>
+
 * test sur le master kubernetes :
 
 ```
@@ -31,6 +33,7 @@ sudo mount -t nfs 192.168.56.1:/srv/exports /tmp
 
 
 <br>
+
 * manifeste PV :
 
 ```
@@ -55,6 +58,7 @@ spec:
 
 
 <br>
+
 * manifest PVC :
 
 ```
@@ -77,6 +81,7 @@ spec:
 
 
 <br>
+
 * manifeste Pod :
 
 ```

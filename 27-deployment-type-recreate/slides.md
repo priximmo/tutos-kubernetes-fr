@@ -5,10 +5,12 @@
 
 
 <br>
+
 * voir plus large : pods, replicaset > déploiement
 
 
 <br>
+
 * penser aux montées de versions : progressivité, itérations, stratégie
 
 
@@ -24,6 +26,7 @@
 
 
 <br>
+
 * 2 proposés par kubernetes :
 		- rolling update : ex - 3 pods v1.0
 						- 1. création d'un pod v2.0

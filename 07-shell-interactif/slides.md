@@ -7,11 +7,13 @@
 
 <br>
 
+
 * parallèle avec docker : 
 		- run : lancement d'un deployement en ligne de commande (lancera un pod)
 		- exec : permet d'éxécuter une commande dans un pod ou se connecter en bash
 
 <br>
+
 * lancement de 2 pods :
 
 ```
@@ -25,6 +27,7 @@ kubectl run anothershell -it --image busybox -- sh
 
 
 <br>
+
 * consulter les conteneurs docker :
 
 ```
@@ -32,6 +35,7 @@ docker ps | grep "myshell\|another"
 ```
 
 <br>
+
 * consulter les images docker :
 
 ```
@@ -39,6 +43,7 @@ docker images | grep busybox
 ```
 
 <br>
+
 * supprimer pods
 
 ```
@@ -48,6 +53,7 @@ kubectl delete deployment anothershell
 ```
 
 <br>
+
 * possiblité d'utiliser --rm :
 
 ```

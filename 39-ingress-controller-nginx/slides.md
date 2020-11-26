@@ -6,6 +6,7 @@
 
 
 <br>
+
 ```
 
                                           6443  +------------+
@@ -34,6 +35,7 @@
 
 
 <br>
+
 * FLUX :
 
 0. Haproxy 80/443 >> KnodeXX
@@ -55,6 +57,7 @@
 
 
 <br>
+
 * installation avec kubespray :
 
 ```
@@ -83,6 +86,7 @@ Rq : https://docs.nginx.com/nginx-ingress-controller/installation/installation-w
 # KUBESPRAY & INGRESS CONTROLLER NGINX
 
 <br>
+
 * configuration des haproxy
 
 ```
@@ -94,6 +98,7 @@ listen kubernetes-ingress
 ```
 
 <br>
+
 * check du namespace ingress-nginx
 
 ```
@@ -102,6 +107,7 @@ kubectl get all -n ingress-nginx
 ```
 
 <br>
+
 * check de la réponse nginx
 
 ```

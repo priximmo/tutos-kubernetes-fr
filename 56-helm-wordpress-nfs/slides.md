@@ -5,11 +5,13 @@
 
 
 <br>
+
 * Wordpress :
 	* datas applicatives (wordpress)
 	* datas base de données (mariadb)
 
 <br>
+
 * création d'un répertoire local pour stockage hostpath (pv)
 
 * sur les nodes/workers :
@@ -39,6 +41,7 @@ ssh -o "StrictHostKeyChecking no" vagrant@node05 "sudo mkdir -p /wordpress/files
 
 
 <br>
+
 * installation pv mariadb :
 
 ```
@@ -65,6 +68,7 @@ spec:
 
 
 <br>
+
 * installation pv wordpress :
 
 ```
@@ -91,6 +95,7 @@ spec:
 
 
 <br>
+
 * installation pvc wordpress :
 
 ```
@@ -113,6 +118,7 @@ spec:
 
 
 <br>
+
 * installation pvc mariadb :
 
 ```

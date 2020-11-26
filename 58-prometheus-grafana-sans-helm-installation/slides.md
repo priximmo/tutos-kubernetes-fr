@@ -5,10 +5,12 @@
 
 
 <br>
+
 A prendre en compte :
 
 
 <br>
+
 * création d'un répertoire local pour stockage hostpath (pv)
 
 * sur les nodes/workers :

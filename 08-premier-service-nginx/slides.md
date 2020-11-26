@@ -6,6 +6,7 @@
 
 
 <br>
+
 * pod = entité de référence dans kub : un ou plusieurs conteneurs docker
 
 * deployment = c'est une représentation logique de un ou plusieurs pod (configuration)
@@ -13,9 +14,11 @@
 * service = moyen d'accéder à nos pods (ip/port)
 
 <br>
+
 * création de pod sans fichier de conf ou avec
 
 <br>
+
 * commande :
 
 ```
@@ -23,6 +26,7 @@ kubectl create deployment monnginx --image nginx
 ```
 
 <br>
+
 * visulisation de deployments et pods :
 
 ```
@@ -42,9 +46,11 @@ kubectl describe deployment nginx
 -> Exposition du pods : service <-
 
 <br>
+
 * Comment accéder au nginx ?
 
 <br>
+
 * service = moyen d'accès à nos pods
 
 ```

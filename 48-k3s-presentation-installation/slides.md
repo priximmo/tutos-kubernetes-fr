@@ -6,6 +6,7 @@
 
 
 <br>
+
 * k8s = beaucoup de ressources
 
 * pb pour :
@@ -30,6 +31,7 @@ Attention : c'est hors HA (externalisation de la BDD)
 
 
 <br>
+
 Comment ?
 
 * base de données sqlite (à la place de ETCD)
@@ -51,6 +53,7 @@ Comment ?
 
 
 <br>
+
 * installation 
 
 ```
@@ -60,6 +63,7 @@ rpm -i https://rpm.rancher.io/k3s-selinux-0.1.1-rc1.el7.noarch.rpm
 ```
 
 <br>
+
 * flannel
 
 ```
@@ -80,6 +84,7 @@ sudo systemctl restart k3s
 
 
 <br>
+
 * installation de kubectl
 
 ```
@@ -96,6 +101,7 @@ yum install -y kubectl
 ```
 
 <br>
+
 * certificat
 
 ```
@@ -103,6 +109,7 @@ yum install -y kubectl
 ```
 
 <br>
+
 * modification des droits
 
 ```

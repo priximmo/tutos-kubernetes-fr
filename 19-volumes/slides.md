@@ -5,10 +5,12 @@
 
 
 <br>
+
 * toujours un point important : kubernetes, docker ou cloud
 
 
 <br>
+
 * conception de l'applicatif (différencier les données persistentes des autres)
 
 * différents types : 
@@ -18,9 +20,11 @@
 		- fichiers partagées et/ou sauvegardés
 
 <br>
+
 * docker = 1 type en général
 
 <br>
+
 * kubernetes 4 types :
 			- emptyDir : pas de persistence mais partage entre pods/conteneurs
 			- hostPath : répertoire partagé avec le host qui héberge le pod (attention déplacement)
@@ -35,9 +39,11 @@ Plus: https://kubernetes.io/docs/concepts/storage/volumes/
 # Volume : hostPath
 
 <br>
+
 * volume du host monté dans le pod (dans le conteneur)
 
 <br>
+
 * aujourd'hui votre pod est sur ce noeud mais demain sur un autre
 
 * attention : uniquement sur le pod
@@ -45,6 +51,7 @@ Plus: https://kubernetes.io/docs/concepts/storage/volumes/
 		- prévoir un stockage sur toutes les machines (GlusterFS distribué, NFS...)
 
 <br>
+
 ```
 apiVersion: v1
 kind: Pod
@@ -72,11 +79,13 @@ spec:
 
 
 <br>
+
 * permet de partager un volume éphémère entre conteneurs d'un même pod
 
 * répartir le travail entre les pods
 
 <br>
+
 ```
 spec:
   containers:
@@ -110,6 +119,7 @@ spec:
 
 
 <br>
+
 
 ```
   volumes:

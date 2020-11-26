@@ -6,6 +6,7 @@
 
 
 <br>
+
 * installation de kubectl sur une machine distante
 
 ```
@@ -34,6 +35,7 @@ kubectl cluster-info
 
 
 <br>
+
 * sur un des master, récupération du certificat
 
 ```
@@ -41,6 +43,7 @@ cat /etc/kubernetes/admin.conf
 ```
 
 <br>
+
 * ajout du certificat sur la machine distante
 
 ```
@@ -58,6 +61,7 @@ kubectl get nodes
 
 
 <br>
+
 * disposer de l'autocomplétion :
 
 prérequis :

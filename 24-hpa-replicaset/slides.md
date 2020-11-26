@@ -5,23 +5,28 @@
 
 
 <br>
+
 * HPA : Horizontal Pods Autoscallers
 
 <br>
+
 * opposition avec VPA (Vertical)
 
 * complémentaires avec CA (Cluster Autoscaller)
 
 <br>
+
 * multiplier le nombre de pods en fonction des ressources
 		- min et max
 		- seuil de déclenchement
 
 <br>
+
 * à éviter plutôt deployement
 
 
 <br>
+
 * ressource : 
 
 ```
@@ -30,6 +35,7 @@ kind: HorizontalPodAutoscaler
 ```
 
 <br>
+
 
 pod > replicaset > HPA > deploy
 
@@ -43,11 +49,13 @@ pod > replicaset > HPA > deploy
 * pas de HPA sans métriques
 
 <br>
+
 * installation de metrics-server :
 		- collecte de métriques pourles fournir par API (kubelet)
 		- CPU ou mémoire notamment
 
 <br>
+
 0- agregation layer
 
 ```
@@ -57,6 +65,7 @@ https://kubernetes.io/docs/tasks/access-kubernetes-api/configure-aggregation-lay
 Rq : sauf si installation kubespray
 
 <br>
+
 1- clone de metrics-server
 
 ```
@@ -64,6 +73,7 @@ git clone https://github.com/kubernetes-incubator/metrics-server.git
 ```
 
 <br>
+
 2- sans tls
 
 ```
@@ -76,6 +86,7 @@ git clone https://github.com/kubernetes-incubator/metrics-server.git
 ```
 
 <br>
+
 3- vérification
 
 ```
@@ -115,6 +126,7 @@ spec:
 
 
 <br>
+
 ```
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler

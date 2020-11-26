@@ -5,9 +5,11 @@
 
 
 <br>
+
 * Server NFS > PV > PVC > Pod
 
 <br>
+
 * suivant provider, utilisation de reclaimPolicy :
 	- delete : si suppression du PVC > sup du PV
 	- recycle : recyclage (on n ele perd pas mais il est vidé)
@@ -30,6 +32,7 @@ Types :
 # Création d'un PV
 
 <br>
+
 * création du PV
 
 ```
@@ -55,6 +58,7 @@ spec:
 
 
 <br>
+
 * création du PVC
 
 ```
@@ -78,9 +82,11 @@ spec:
 
 
 <br>
+
 * attention : particularité BDD (deploy/statefulset)
 
 <br>
+
 * création du PV
 
 ```
@@ -116,6 +122,7 @@ Exemple : delete pod et recréation sur le même volume
 Pod 1 : nginx
 
 <br>
+
 ```
 apiVersion: v1
 kind: Pod
@@ -141,6 +148,7 @@ spec:
 Pod 2 : debian
 
 <br>
+
 ```
 apiVersion: v1
 kind: Pod

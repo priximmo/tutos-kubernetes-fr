@@ -6,6 +6,7 @@
 
 
 <br>
+
 ```
 
                                           6443  +------------+
@@ -34,6 +35,7 @@
 
 
 <br>
+
 * FLUX :
 
 0. Haproxy 80/443 >> KnodeXX
@@ -55,6 +57,7 @@
 
 
 <br>
+
 * exemple de Hello1
 
 ```
@@ -90,6 +93,7 @@ spec:
 
 
 <br>
+
 * exemple de Hello2
 
 ```
@@ -125,6 +129,7 @@ spec:
 
 
 <br>
+
 * création des services
 
 ```

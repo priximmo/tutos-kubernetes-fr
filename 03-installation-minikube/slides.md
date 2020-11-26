@@ -10,6 +10,7 @@
 
 
 <br>
+
 * Kubernetes "version portable" :
 		- moins de ressources
 		- un cluster sur un noeud

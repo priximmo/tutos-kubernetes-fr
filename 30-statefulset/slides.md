@@ -5,14 +5,17 @@
 
 
 <br>
+
 * déploiement des applications stateful (bases de données par ex)
 
 <br>
+
 * particularité :
 		- ordonnées (dans le lancement)
 		- garde en mémoire les volumes attachés
 
 <br>
+
 * création de service headless pour dns interne (chaque pods à un dns)
 
 -----------------------------------------------------------------------

@@ -9,6 +9,7 @@
 
 
 <br>
+
 * namespace : un espace cloisonné (potentiellement gestion de droits...)
 
 
@@ -34,10 +35,12 @@ kubectl get pods -n kube-system
 
 
 <br>
+
 * contexte : qui sommes nous, où sommes nous ? (conf par défaut du namespace par ex)
 
 
 <br>
+
 * la config view : paramètre des kubeconfig
 
 ```
@@ -45,6 +48,7 @@ kubectl config view
 ```
 
 <br>
+
 * lister les contextes
 
 ```
@@ -53,6 +57,7 @@ kubectl config current-context
 ```
 
 <br>
+
 * lister les namespaces
 
 ```
@@ -67,6 +72,7 @@ kubectl get namespace
 
 
 <br>
+
 * création d'un namespace
 
 ```
@@ -75,6 +81,7 @@ kubectl create deploy monnginx --image nginx -n xavki
 ```
 
 <br>
+
 * création d'un contexte
 
 ```
@@ -82,6 +89,7 @@ kubectl config set-context xavki --namespace xavki --user kubernetes-admin --clu
 ```
 
 <br>
+
 * switch de contexte
 
 ```

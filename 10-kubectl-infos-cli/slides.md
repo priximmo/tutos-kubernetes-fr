@@ -6,6 +6,7 @@
 
 
 <br>
+
 * liste des noeuds et leurs états:
 
 ```
@@ -14,6 +15,7 @@ kubectl describe nodes kubmaster
 ```
 
 <br>
+
 * les composants
 
 ```
@@ -26,6 +28,7 @@ kubectl get daemonsets -n kube-system
 -> Pods et services <-
 
 <br>
+
 * liste des pods
 
 ```
@@ -33,6 +36,7 @@ kubectl get pods
 ```
 
 <br>
+
 * liste des services
 
 ```
@@ -40,6 +44,7 @@ kubectl get services
 ```
 
 <br>
+
 * lister les dépoiements
 
 ```
@@ -47,6 +52,7 @@ kubectl get deploy
 ```
 
 <br>
+
 * pour tout lister
 
 ```
@@ -54,6 +60,7 @@ kubectl get all
 ```
 
 <br>
+
 * options récurrentes
 
 ```
@@ -69,6 +76,7 @@ kubectl get all
 
 
 <br>
+
 * describe : afficher la configuration
 
 ```
@@ -82,6 +90,7 @@ kubectl describe deploy nginx
 ```
 
 <br>
+
 * logs : pour afficher les logs de chaque pods
 
 ```
@@ -89,6 +98,7 @@ kubectl logs nginx...
 ```
 
 <br>
+
 * events : lister les évènements liés aux pods
 
 ```

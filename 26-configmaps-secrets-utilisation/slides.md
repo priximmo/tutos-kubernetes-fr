@@ -6,14 +6,17 @@
 
 <br>
 
+
 * création par la ligne de commande - CLI
 
 <br>
+
 
 * possibilité de créer par manifeste
 
 
 <br>
+
 
 ```
 kind: ConfigMap 
@@ -30,6 +33,7 @@ data:
 ```
 
 <br>
+
 * 2 types :
 		- volumes
 		- configMapKeyRef
@@ -42,9 +46,11 @@ data:
 
 <br>
 
+
 * variables env : configMapKeyRef
 
 <br>
+
 
 * une à une :
 
@@ -78,6 +84,7 @@ spec:
 
 <br>
 
+
 * toute la configmap
 
 ```
@@ -101,10 +108,12 @@ spec:
 
 
 <br>
+
 * fichiers ou répertoires
 
 
 <br>
+
 
 ```
 kind: ConfigMap
@@ -125,6 +134,7 @@ data:
 
 
 <br>
+
 
 * fichier monté en volume
 
@@ -158,6 +168,7 @@ spec:
 
 
 <br>
+
 
 * création
 

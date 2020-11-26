@@ -5,6 +5,7 @@
 
 
 <br>
+
 * créer des réplicas de pods
 
 * préférer la ressource deployment (plus récente et plus large)
@@ -12,16 +13,19 @@
 * ne pas confondre avec du scaling : nombre d'instance fixe
 
 <br>
+
 * 2 manières :
 		- attachée aux pods
 		- détachée des pods
 
 <br>
+
 * attaché :
 		- template de pods
 		- au sein du même fichier
 
 <br>
+
 * détaché :
 		- création de pods puis d'un replicaset
 		- selector pour sélectionner les pods ciblés
@@ -34,6 +38,7 @@
 
 
 <br>
+
 ```
 apiVersion: apps/v1
 kind: replicaSet		# set ressources
@@ -64,6 +69,7 @@ spec:								# conf du réplicaset
 * nginx
 
 <br>
+
 ```
 apiVersion: apps/v1
 kind: ReplicaSet
@@ -93,6 +99,7 @@ spec:
 
 
 <br>
+
 * liste des RS
 
 ```
@@ -100,6 +107,7 @@ kubect get rs
 ```
 
 <br>
+
 * métas du RS
 
 ```
@@ -107,6 +115,7 @@ kubectl describe rs front
 ```
 
 <br>
+
 * manifeste d'un pod
 
 ```
@@ -120,6 +129,7 @@ kubectl get pods frontend.. -o yaml
 
 
 <br>
+
 * création d'un pod seul
 
 ```
@@ -143,6 +153,7 @@ spec:
 
 
 <br>
+
 * création du replicaset
 
 ```

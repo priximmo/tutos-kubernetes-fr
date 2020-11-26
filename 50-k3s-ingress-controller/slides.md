@@ -6,6 +6,7 @@
 
 
 <br>
+
 * check traefik
 
 ```
@@ -15,6 +16,7 @@ kubectl get all -n kube-system
 Rq : master
 
 <br>
+
 * FLUX :
 
 
@@ -35,6 +37,7 @@ Rq : master
 
 
 <br>
+
 * exemple de Hello1
 
 ```
@@ -71,6 +74,7 @@ spec:
 
 
 <br>
+
 * exemple de Hello2
 
 ```
@@ -107,6 +111,7 @@ spec:
 
 
 <br>
+
 * création des services
 
 ```

@@ -6,22 +6,26 @@
 ## Principes
 
 <br>
+
 * permettre de lancer les conteneurs docker
 
 * manifeste : configuration en mode déclaratif
 	- format yaml ou json
 
 <br>
+
 * à éviter : 
 		- préférer les déploiements (plus aboutis)
 		- k8s n'a pas d'intérêts (pas de persistence)
 
 <br>
+
 * deux types de pods :
 		- mono conteneurs
 		- multi-conteneurs
 
 <br>
+
 * pods répliqués = un groupe nommé controller :
 		- deployment
 		- statefulset
@@ -30,6 +34,7 @@
 * ces controllers utilisent des templates de pods
 
 <br>
+
 * les conteneurs d'un même pods possède : 
 		- le même réseau (ip/port)
 		- les mêmes volumes
@@ -37,6 +42,7 @@
 * communication par localhost
 
 <br>
+
 * doc k8s : https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.14/#pod-v1-core
 
 ---------------------------------------------------------------------------
@@ -68,6 +74,7 @@ spec:
 
 
 <br>
+
 * namespace, labels, annotations : cf vidéos précédentes
 
 ```
@@ -111,6 +118,7 @@ spec:
 ## Pods multiconteneurs
 
 <br>
+
 ```
 kind: Pod
 metadata:
@@ -126,6 +134,7 @@ spec:
     command: ["sleep", "600"]
 ```
 <br>
+
 Connexion à un des conteneurs 
 
 ```

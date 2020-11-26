@@ -5,6 +5,7 @@
 
 
 <br>
+
 * kubernetes propose du provisioning
 		- persistentVolumes et persistentVolumesClaim
 		- sépration entre provisionning et consommation
@@ -13,6 +14,7 @@
 
 
 <br>
+
 * imbrication :
 		PV > PVC > Pods
 		provisioning > quota pods > utilisation pods

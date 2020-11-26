@@ -5,12 +5,14 @@
 
 
 <br>
+
 * 2 types de déploiements pour des montées de version :
 		- rolling update
     - recreate
 
 
 <br>
+
 * penser aux montées de versions : progressivité, itérations
 
 
@@ -119,6 +121,7 @@ spec:
 
 
 <br>
+
 ```
   strategy:
     type: RollingUpdate				# type
@@ -128,6 +131,7 @@ spec:
 ```
 
 <br>
+
 Exemple :
 		- on autorise pas de réduction de nombre de pods
 					- maxUnavailable = 0
@@ -135,6 +139,7 @@ Exemple :
 					- maxSurge = 2
 
 <br>
+
 En plus : 
 		- minReadySeconds : délai pour lancer un autre update de pod
 		- progressDeadlineSeconds : délai max pour le déploiement sinon fail

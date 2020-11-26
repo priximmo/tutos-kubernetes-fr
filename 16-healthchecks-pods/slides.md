@@ -7,6 +7,7 @@
 ## Rappels :
 
 <br>
+
 ```
 kind: Pod
 metadata:
@@ -26,6 +27,7 @@ spec:
     command: ["sleep", "600"]
 ```
 <br>
+
 Connexion à un des conteneurs 
 
 ```
@@ -38,6 +40,7 @@ kubectl exec -ti monpod -c mondebian /bin/bash
 
 
 <br>
+
 * certaines applications ont besoin d'être restartées
 
 * prévenir des images mal construites non fonctionnelles
@@ -45,6 +48,7 @@ kubectl exec -ti monpod -c mondebian /bin/bash
 * éviter les coupures lors de déploiements (zero downtime)
 
 <br>
+
 * liveness = restart automatique
 
 * readiness = remplacement de pods défectueux
@@ -52,6 +56,7 @@ kubectl exec -ti monpod -c mondebian /bin/bash
 * les deux sont complémentaires
 
 <br>
+
 * exemple de scénario :
 
 1- readiness = fail
@@ -68,12 +73,14 @@ kubectl exec -ti monpod -c mondebian /bin/bash
 
 
 <br>
+
 * multiples modes :
 	- command > exec
 	- http > httpGet
 	- tcp > tcpSocket
 
 <br>
+
 * variables:
 	- initialDelaySeconds : à partir de quand commence le check ?
 	- periodSeconds : à quelle fréquence ?
@@ -82,6 +89,7 @@ kubectl exec -ti monpod -c mondebian /bin/bash
 	- failureThreshold : au bout de combien de négatifs on sort ?
 
 <br>
+
 * httpGet :
 	- Host : quel host (ip/adresse) ?
 	- scheme : protocole (http ou https)
@@ -96,6 +104,7 @@ kubectl exec -ti monpod -c mondebian /bin/bash
 
 
 <br>
+
 * exemple doc k8s :
 
 ```
@@ -123,6 +132,7 @@ spec:
 
 
 <br>
+
 * check sur une autre adresse :
 
 ```
@@ -147,6 +157,7 @@ spec:
 # par TCPSocket
 
 <br>
+
 * idem mais en tcp
 
 ```
@@ -169,6 +180,7 @@ spec:
 
 
 <br>
+
 ```
 readinessProbe:
   httpGet:

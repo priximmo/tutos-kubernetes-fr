@@ -5,9 +5,11 @@
 # KUBESPRAY & HAPROXY : api-server haute disponibilité
 
 <br>
+
 * cocorico = solution 100% française
 
 <br>
+
 * 1. installation d'un cluster haproxy/keepalived
 		* load balancer sur les masters
 		* fault tolerance des load balancers
@@ -53,6 +55,7 @@
 
 
 <br>
+
 * installation haproxy & keepalived
 
 ```
@@ -81,6 +84,7 @@ listen kubernetes-apiserver-https
 ```
 
 <br>
+
 * puis conf de /etc/keepalived/keepalived.conf
 
 -------------------------------------------------------------------

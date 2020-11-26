@@ -4,6 +4,7 @@
 # HELM : hello world
 
 <br>
+
 * liste des charts
 
 ```
@@ -11,6 +12,7 @@ helm list --kubeconfig /etc/rancher/k3s/k3s.yaml
 ```
 
 <br>
+
 ```
 hello-world /
   Chart.yaml 		# Description Chart
@@ -21,6 +23,7 @@ hello-world /
 ```
 
 <br>
+
 * création d'un chart
 
 ```
@@ -28,6 +31,7 @@ helm create hello-xavki
 ```
 
 <br>
+
 * lancement
 
 ```
@@ -35,6 +39,7 @@ helm install --kubeconfig /etc/rancher/k3s/k3s.yaml hello-xavki ./hello-xavki/
 ```
 
 <br>
+
 * suppression
 
 ```

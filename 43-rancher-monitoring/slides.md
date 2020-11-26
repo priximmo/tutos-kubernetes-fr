@@ -6,6 +6,7 @@
 
 
 <br>
+
 * installation dans votre cluster via GUI
 
 * prometheus grafana dans un namespace dédié
@@ -17,6 +18,7 @@
 * se rendre dans la GUI > cluster > tools > monitoring
 
 <br>
+
 * attention :
 		* CPU : 4 par master
 		* ram : 4G par worker
@@ -29,9 +31,11 @@
 
 
 <br>
+
 * problème ns ingress-nginx (default) vs ns cattle-prometheus
 
 <br>
+
 * solution 1 : changer cluterip > nodePort
 	
 ```
@@ -41,9 +45,11 @@ kubectl edit svc access-prometheus -n cattle-prometheus
 Rq :faire pointer le loadbalancer externe vers ce port
 
 <br>
+
 * solution 2 :
 
 <br>
+
 * idée : créer un service dans le ns default
 		* vers le dns interne du service de cattle-prometheus
 
@@ -56,6 +62,7 @@ Rq :faire pointer le loadbalancer externe vers ce port
 
 
 <br>
+
 * service / default
 
 ```
@@ -88,6 +95,7 @@ spec:
 
 
 <br>
+
 * création d'un ingress vers le service de default
 
 ```
@@ -115,6 +123,7 @@ spec:
 
 
 <br>
+
 ```
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress

@@ -6,10 +6,12 @@
 
 
 <br>
+
 ## Pourquoi passer par les fichiers de conf ?
 
 
 <br>
+
 * la cli c'est bien en abuser ça craint...
 
 * un fichier est préférable car les configurations sont souvent complexes 
@@ -18,10 +20,12 @@
 
 
 <br>
+
 ## Génération des fichiers par la CLI
 
 
 <br>
+
 * génération d'un yaml à partir d'un déploiement existant
 
 ```
@@ -30,6 +34,7 @@ kubectl get deploy nginx -o yaml > mondeploy.yaml
 ```
 
 <br>
+
 * génération du service en yaml
 
 ```
@@ -44,6 +49,7 @@ kubectl get service nginx -o yaml > monservice.yaml
 
 
 <br>
+
 * création et lancement du déploiement (lancement) :
 
 ```
@@ -57,6 +63,7 @@ kubectl apply -f monservice.yml
 ```
 
 <br>
+
 ## Orchestrer un déploiement
 
 * Astuce : concatener les 2 fichiers :

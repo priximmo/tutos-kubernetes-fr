@@ -5,6 +5,7 @@
 
 
 <br>
+
 Plusieurs problématiques :
 * le stockage persistant
 * la communication entre les noeuds (assurer la distribution BDD)
@@ -12,6 +13,7 @@ Plusieurs problématiques :
 
 
 <br>
+
 1- Classe de stockage - Storage Class
 
 ```
