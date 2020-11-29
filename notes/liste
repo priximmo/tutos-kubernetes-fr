@@ -1,0 +1,11 @@
+
+kubectx
+
+kubens
+
+kube ps1
+
+kubectl get secrets flux-git-deploy -n fluxcd -ojsonpath='{.data.identity}' | base64 -d
+
+
+https://github.com/mfilotto/k8s-tips-n-tricks
