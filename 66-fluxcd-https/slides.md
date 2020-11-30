@@ -11,6 +11,11 @@
 * création d'un secret sous kub (user/token)
 
 ```
+export GIT_AUTHKEY="xxxxxxxxxxxxxxxxxx"
+export GIT_AUTHUSER="xavki"
+```
+
+```
 kubectl create secret generic flux-git-auth --namespace fluxcd --from-literal=GIT_AUTHUSER=$GIT_AUTHUSER --from-literal=GIT_AUTHKEY=$GIT_AUTHKEY
 ```
 
