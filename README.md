@@ -68,4 +68,8 @@ Playlist : https://www.youtube.com/playlist?list=PLn6POgpklwWqfzaosSgX2XEKpse5VY
 - 62. [K8S - 60. MONITORING DE PODS : EXEMPLE AVEC REDIS ET SON EXPORTER](https://www.youtube.com/watch?v=j7iF-i1UAMc)
 - 63. [K8S - 61. MONITORING : INSTALLATION DE GRAFANA (INGRESS, PV, DEPLOYMENT...)](https://www.youtube.com/watch?v=oO95QbLctJs)
 - 64. [K8S - 62. MONITORING : MISE EN PLACE DE CADVISOR ET DASHBOARDS](https://www.youtube.com/watch?v=q7bf4NrCQwE)
-
+- 65. [K8S - 63. FLUX CD : INTRODUCTION](https://www.youtube.com/watch?v=yUvYi6obLgM)
+- 66. [FLUXCD - 64. INSTALLATION ET PREMIER SYNC #K8S](https://www.youtube.com/watch?v=h-EIzE56hEw)
+- 67. [FLUXCD - 65. LIGNE DE COMMANDE FLUXCTL ET LE BINAIRE FLUX #K8S](https://www.youtube.com/watch?v=-7EacYxEa3c)
+- 68. [FLUXCD - 66. CONFIGURATION HTTPS, SECRETS ET ROLLOUT #K8S](https://www.youtube.com/watch?v=jKE8gqb6KtQ)
+- 69. [FLUXCD - 67. FLUXCTL : RELEASE, IMAGES, COMMIT #K8S](https://www.youtube.com/watch?v=ggE89mySZXA)
