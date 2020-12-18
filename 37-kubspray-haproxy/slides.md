@@ -1,5 +1,6 @@
 %title: Kubernetes 
 %author: xavki
+%blog: [Xavki Blog](https://xavki.blog)
 
 
 # KUBESPRAY & HAPROXY : api-server haute disponibilité

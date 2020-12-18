@@ -1,5 +1,6 @@
 %title: Kubernetes 
 %author: xavki
+%blog: [Xavki Blog](https://xavki.blog)
 
 # PROMETHEUS : SANS HELM - AJOUT DE NODE EXPORTER
 

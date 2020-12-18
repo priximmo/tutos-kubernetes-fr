@@ -1,5 +1,6 @@
 %title: KUBERNETES
 %author: xavki
+%blog: [Xavki Blog](https://xavki.blog)
 
 
 

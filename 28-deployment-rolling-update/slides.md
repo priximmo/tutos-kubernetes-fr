@@ -1,5 +1,6 @@
 %title: Kubernetes 
 %author: xavki
+%blog: [Xavki Blog](https://xavki.blog)
 
 # Deployment : Rolling Update - partie 1
 

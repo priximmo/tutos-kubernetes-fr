@@ -1,5 +1,7 @@
 %title: Kubernetes 
 %author: xavki
+%blog: [Xavki Blog](https://xavki.blog)
+%blog : [Xavki Blog](https://xavki.blog)
 
 
 
